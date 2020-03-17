@@ -1,9 +1,26 @@
 <div class="white px-4 section-header">
-  <h3>Customers list</h3>
-  <p class="grey-text pt-3">Manage your customers list</p>
+  <h3>Calculo de resistencia</h3>
+  <p class="grey-text pt-3">Insira os dados para realizar o calculo</p>
 </div>
 
 <div class="container-fluid pt-5 pb-5">
+  <app-geometria></app-geometria>
+</div>
+<input #geometriaData value="{{geometria}}" name="forma" >
+
+<div class="container-fluid pt-5 pb-5">
+  <div class="apoio__options">
+    <!-- {{geometria}} -->
+    <!-- <div [ngSwitch]="geometria">
+      <div *ngSwitchCase="geometria.quadrado">Quadrado</div>
+      <div *ngSwitchDefault>{{geometria}}</div>
+    </div> -->
+
+  </div>
+</div>
+
+
+<!-- 
   <div class="pt-3 pb-5">
     <button mdbBtn color="primary" (click)="onAddCustomer()">Add new customer</button>
 
@@ -17,4 +34,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

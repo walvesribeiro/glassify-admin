@@ -1,0 +1,16 @@
+.geometria{
+    &__options{
+        display: flex;
+        flex-wrap: wrap;
+        place-content: space-around;
+    }
+    &__button{
+        flex: 1;
+        flex-basis: 30%;
+        display: flex;
+        place-content: space-around;
+        img{
+            width: 90%;
+        }
+    }
+}

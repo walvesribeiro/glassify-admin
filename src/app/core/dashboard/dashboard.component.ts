@@ -15,61 +15,10 @@ import { Customer } from '../../customers/models/customer.model';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   projectsSub: Subscription;
-  projects = [
-    {
-      title: 'Project 1',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
-      photoUrl:
-        'https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg'
-    },
-    {
-      title: 'Project 2',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
-      photoUrl:
-        'https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(98).jpg'
-    },
-    {
-      title: 'Project 3',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
-      photoUrl:
-        'https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(99).jpg'
-    },
-    {
-      title: 'Project 4',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
-      photoUrl:
-        'https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(95).jpg'
-    }
-  ];
+  projects: any[] = [];
 
   customersSub: Subscription;
-  customers: Customer[] = [
-    {
-      id: 1,
-      name: 'Example customer 1',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.'
-    },
-    {
-      id: 2,
-      name: 'Example customer 2',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.'
-    },
-    {
-      id: 3,
-      name: 'Example customer 3',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.'
-    },
-    {
-      id: 4,
-      name: 'Example customer 4',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.'
-    },
-    {
-      id: 5,
-      name: 'Example customer 5',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.'
-    }
-  ];
+  customers: Customer[] = [];
 
   constructor(
     private store: Store<AppState>,

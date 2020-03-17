@@ -1,0 +1,244 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
+	<defs>
+		<style>
+			.cls-1{stroke:#fff;stroke-width:3.26px;}.cls-1,.cls-20,.cls-23{stroke-miterlimit:10;}.cls-1,.cls-34{filter:url(#luminosity-invert);}.cls-2{mask:url(#mask);}.cls-10,.cls-11,.cls-12,.cls-23,.cls-3,.cls-4,.cls-5,.cls-6,.cls-7,.cls-8,.cls-9{fill:none;}.cls-10,.cls-11,.cls-12,.cls-3,.cls-4,.cls-5,.cls-6,.cls-7,.cls-8,.cls-9{stroke:#1d1e1c;stroke-linecap:round;stroke-dasharray:0
+			21.18;}.cls-3{stroke-width:4.07px;}.cls-4{stroke-width:11.4px;}.cls-5{stroke-width:10.59px;}.cls-6{stroke-width:9.77px;}.cls-7{stroke-width:8.96px;}.cls-8{stroke-width:8.14px;}.cls-9{stroke-width:7.33px;}.cls-10{stroke-width:6.52px;}.cls-11{stroke-width:5.7px;}.cls-12{stroke-width:4.88px;}.cls-13{mask:url(#mask-2);}.cls-14{mask:url(#mask-3);}.cls-15{mask:url(#mask-4);}.cls-16{mask:url(#mask-5);}.cls-17{mask:url(#mask-6);}.cls-18{mask:url(#mask-7);}.cls-19{mask:url(#mask-8);}.cls-20{fill:#fff;stroke:#647073;stroke-width:5.85px;}.cls-21{fill:#d1e8ed;}.cls-22,.cls-33{fill:#647073;}.cls-23{stroke:#f4f3f4;stroke-width:3.9px;}.cls-24{fill:#f4f3f4;}.cls-25{mask:url(#mask-9);}.cls-26{fill:url(#Gradiente_sem_nome_61);}.cls-27{mask:url(#mask-10);}.cls-28{fill:url(#Gradiente_sem_nome_61-2);}.cls-29{mask:url(#mask-11);}.cls-30{fill:url(#Gradiente_sem_nome_61-3);}.cls-31{mask:url(#mask-12);}.cls-32{fill:url(#Gradiente_sem_nome_61-4);}.cls-33{font-size:153.53px;font-family:MrsEavesAllPetiteCapsOT,
+			Mrs Eaves;}
+		</style>
+		<filter id="luminosity-invert" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feColorMatrix values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
+		</filter>
+		<mask id="mask" x="72.65" y="14.84" width="262.01" height="477.6" maskUnits="userSpaceOnUse">
+			<path class="cls-1" d="M136.06,490.82h125.6l9-9V16.47H136.06Z"/>
+		</mask>
+		<mask id="mask-2" x="-38.6" y="14.97" width="186.61" height="477.6" maskUnits="userSpaceOnUse">
+			<path class="cls-1" d="M95.87,490.95H-28l-9-9V16.6H95.87Z"/>
+		</mask>
+		<mask id="mask-3" x="160.81" y="14.84" width="262.01" height="477.6" maskUnits="userSpaceOnUse">
+			<path class="cls-1" d="M224.22,490.82h125.6l9-9V16.47H224.22Z"/>
+		</mask>
+		<mask id="mask-4" x="1.87" y="14.97" width="234.31" height="477.6" maskUnits="userSpaceOnUse">
+			<path class="cls-1" d="M184,490.95H60.2l-9-9V16.6H184Z"/>
+		</mask>
+		<mask id="mask-5" x="371.52" y="14.84" width="199.64" height="477.6" maskUnits="userSpaceOnUse">
+			<path class="cls-1" d="M434.93,490.82h125.6l9-9V16.47H434.93Z"/>
+		</mask>
+		<mask id="mask-6" x="184.87" y="14.97" width="262.01" height="477.6" maskUnits="userSpaceOnUse">
+			<path class="cls-1" d="M394.74,490.95H270.9l-9-9V16.6H394.74Z"/>
+		</mask>
+		<mask id="mask-7" x="459.68" y="14.84" width="199.64" height="477.6" maskUnits="userSpaceOnUse">
+			<g class="cls-34"/>
+		</mask>
+		<mask id="mask-8" x="273.04" y="14.97" width="220.46" height="477.6" maskUnits="userSpaceOnUse">
+			<path class="cls-1" d="M482.91,490.95H359.07l-9-9V16.6H482.91Z"/>
+		</mask>
+		<mask id="mask-9" x="-114" y="17.18" width="448.65" height="476.3" maskUnits="userSpaceOnUse">
+			<g class="cls-34">
+				<g class="cls-2">
+					<line class="cls-3" x1="332.62" y1="483.34" x2="332.62" y2="29.27"/>
+					<line class="cls-4" x1="204.3" y1="461.88" x2="204.3" y2="29.27"/>
+					<line class="cls-5" x1="218.55" y1="483.34" x2="218.55" y2="29.27"/>
+					<line class="cls-6" x1="232.81" y1="461.88" x2="232.81" y2="29.27"/>
+					<line class="cls-7" x1="247.07" y1="483.34" x2="247.07" y2="29.27"/>
+					<line class="cls-8" x1="261.33" y1="461.88" x2="261.33" y2="29.27"/>
+					<line class="cls-9" x1="275.59" y1="483.34" x2="275.59" y2="29.27"/>
+					<line class="cls-10" x1="289.85" y1="461.88" x2="289.85" y2="29.27"/>
+					<line class="cls-11" x1="304.11" y1="483.34" x2="304.11" y2="29.27"/>
+					<line class="cls-12" x1="318.36" y1="461.88" x2="318.36" y2="29.27"/>
+					<line class="cls-3" x1="74.68" y1="483.34" x2="74.68" y2="29.27"/>
+					<line class="cls-4" x1="203.01" y1="461.88" x2="203.01" y2="29.27"/>
+					<line class="cls-5" x1="188.75" y1="483.34" x2="188.75" y2="29.27"/>
+					<line class="cls-6" x1="174.49" y1="461.88" x2="174.49" y2="29.27"/>
+					<line class="cls-7" x1="160.23" y1="483.34" x2="160.23" y2="29.27"/>
+					<line class="cls-8" x1="145.97" y1="461.88" x2="145.97" y2="29.27"/>
+					<line class="cls-9" x1="131.71" y1="483.34" x2="131.71" y2="29.27"/>
+					<line class="cls-10" x1="117.45" y1="461.88" x2="117.45" y2="29.27"/>
+					<line class="cls-11" x1="103.2" y1="483.34" x2="103.2" y2="29.27"/>
+					<line class="cls-12" x1="88.94" y1="461.88" x2="88.94" y2="29.27"/>
+				</g>
+				<g class="cls-13">
+					<line class="cls-4" x1="16.36" y1="455.49" x2="16.36" y2="22.88"/>
+					<line class="cls-5" x1="2.1" y1="476.96" x2="2.1" y2="22.88"/>
+					<line class="cls-3" x1="145.97" y1="476.96" x2="145.97" y2="22.88"/>
+					<line class="cls-4" x1="17.65" y1="455.49" x2="17.65" y2="22.88"/>
+					<line class="cls-5" x1="31.91" y1="476.96" x2="31.91" y2="22.88"/>
+					<line class="cls-6" x1="46.17" y1="455.49" x2="46.17" y2="22.88"/>
+					<line class="cls-7" x1="60.43" y1="476.96" x2="60.43" y2="22.88"/>
+					<line class="cls-8" x1="74.68" y1="455.49" x2="74.68" y2="22.88"/>
+					<line class="cls-9" x1="88.94" y1="476.96" x2="88.94" y2="22.88"/>
+					<line class="cls-10" x1="103.2" y1="455.49" x2="103.2" y2="22.88"/>
+					<line class="cls-11" x1="117.46" y1="476.96" x2="117.46" y2="22.88"/>
+					<line class="cls-12" x1="131.72" y1="455.49" x2="131.72" y2="22.88"/>
+				</g>
+			</g>
+		</mask>
+		<linearGradient id="Gradiente_sem_nome_61" x1="11.14" y1="256.31" x2="102.7" y2="256.31"
+		                gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#2a4b9a" stop-opacity="0"/>
+			<stop offset="0.5" stop-color="#e42320" stop-opacity="0.5"/>
+			<stop offset="1" stop-color="#2a4b9a" stop-opacity="0"/>
+		</linearGradient>
+		<mask id="mask-10" x="-25.83" y="17.18" width="448.65" height="476.3" maskUnits="userSpaceOnUse">
+			<g class="cls-34">
+				<g class="cls-14">
+					<line class="cls-3" x1="420.78" y1="483.34" x2="420.78" y2="29.27"/>
+					<line class="cls-4" x1="292.46" y1="461.88" x2="292.46" y2="29.27"/>
+					<line class="cls-5" x1="306.72" y1="483.34" x2="306.72" y2="29.27"/>
+					<line class="cls-6" x1="320.98" y1="461.88" x2="320.98" y2="29.27"/>
+					<line class="cls-7" x1="335.24" y1="483.34" x2="335.24" y2="29.27"/>
+					<line class="cls-8" x1="349.5" y1="461.88" x2="349.5" y2="29.27"/>
+					<line class="cls-9" x1="363.75" y1="483.34" x2="363.75" y2="29.27"/>
+					<line class="cls-10" x1="378.01" y1="461.88" x2="378.01" y2="29.27"/>
+					<line class="cls-11" x1="392.27" y1="483.34" x2="392.27" y2="29.27"/>
+					<line class="cls-12" x1="406.53" y1="461.88" x2="406.53" y2="29.27"/>
+					<line class="cls-3" x1="162.85" y1="483.34" x2="162.85" y2="29.27"/>
+					<line class="cls-4" x1="291.17" y1="461.88" x2="291.17" y2="29.27"/>
+					<line class="cls-5" x1="276.91" y1="483.34" x2="276.91" y2="29.27"/>
+					<line class="cls-6" x1="262.65" y1="461.88" x2="262.65" y2="29.27"/>
+					<line class="cls-7" x1="248.4" y1="483.34" x2="248.4" y2="29.27"/>
+					<line class="cls-8" x1="234.14" y1="461.88" x2="234.14" y2="29.27"/>
+					<line class="cls-9" x1="219.88" y1="483.34" x2="219.88" y2="29.27"/>
+					<line class="cls-10" x1="205.62" y1="461.88" x2="205.62" y2="29.27"/>
+					<line class="cls-11" x1="191.36" y1="483.34" x2="191.36" y2="29.27"/>
+					<line class="cls-12" x1="177.11" y1="461.88" x2="177.11" y2="29.27"/>
+				</g>
+				<g class="cls-15">
+					<line class="cls-4" x1="104.53" y1="455.49" x2="104.53" y2="22.88"/>
+					<line class="cls-5" x1="90.27" y1="476.96" x2="90.27" y2="22.88"/>
+					<line class="cls-6" x1="76.01" y1="455.49" x2="76.01" y2="22.88"/>
+					<line class="cls-7" x1="61.75" y1="476.96" x2="61.75" y2="22.88"/>
+					<line class="cls-8" x1="47.49" y1="455.49" x2="47.49" y2="22.88"/>
+					<line class="cls-9" x1="33.23" y1="476.96" x2="33.23" y2="22.88"/>
+					<line class="cls-10" x1="18.97" y1="455.49" x2="18.97" y2="22.88"/>
+					<line class="cls-11" x1="4.72" y1="476.96" x2="4.72" y2="22.88"/>
+					<line class="cls-3" x1="234.14" y1="476.96" x2="234.14" y2="22.88"/>
+					<line class="cls-4" x1="105.82" y1="455.49" x2="105.82" y2="22.88"/>
+					<line class="cls-5" x1="120.07" y1="476.96" x2="120.07" y2="22.88"/>
+					<line class="cls-6" x1="134.33" y1="455.49" x2="134.33" y2="22.88"/>
+					<line class="cls-7" x1="148.59" y1="476.96" x2="148.59" y2="22.88"/>
+					<line class="cls-8" x1="162.85" y1="455.49" x2="162.85" y2="22.88"/>
+					<line class="cls-9" x1="177.11" y1="476.96" x2="177.11" y2="22.88"/>
+					<line class="cls-10" x1="191.37" y1="455.49" x2="191.37" y2="22.88"/>
+					<line class="cls-11" x1="205.62" y1="476.96" x2="205.62" y2="22.88"/>
+					<line class="cls-12" x1="219.88" y1="455.49" x2="219.88" y2="22.88"/>
+				</g>
+			</g>
+		</mask>
+		<linearGradient id="Gradiente_sem_nome_61-2" x1="99.3" y1="256.31" x2="190.87" y2="256.31"
+		                xlink:href="#Gradiente_sem_nome_61"/>
+		<mask id="mask-11" x="184.87" y="17.18" width="448.65" height="476.3" maskUnits="userSpaceOnUse">
+			<g class="cls-34">
+				<g class="cls-16">
+					<line class="cls-4" x1="503.17" y1="461.88" x2="503.17" y2="29.27"/>
+					<line class="cls-3" x1="373.55" y1="483.34" x2="373.55" y2="29.27"/>
+					<line class="cls-4" x1="501.88" y1="461.88" x2="501.88" y2="29.27"/>
+					<line class="cls-5" x1="487.62" y1="483.34" x2="487.62" y2="29.27"/>
+					<line class="cls-6" x1="473.36" y1="461.88" x2="473.36" y2="29.27"/>
+					<line class="cls-7" x1="459.1" y1="483.34" x2="459.1" y2="29.27"/>
+					<line class="cls-8" x1="444.84" y1="461.88" x2="444.84" y2="29.27"/>
+					<line class="cls-9" x1="430.58" y1="483.34" x2="430.58" y2="29.27"/>
+					<line class="cls-10" x1="416.32" y1="461.88" x2="416.32" y2="29.27"/>
+					<line class="cls-11" x1="402.07" y1="483.34" x2="402.07" y2="29.27"/>
+					<line class="cls-12" x1="387.81" y1="461.88" x2="387.81" y2="29.27"/>
+				</g>
+				<g class="cls-17">
+					<line class="cls-3" x1="186.91" y1="476.96" x2="186.91" y2="22.88"/>
+					<line class="cls-4" x1="315.23" y1="455.49" x2="315.23" y2="22.88"/>
+					<line class="cls-5" x1="300.97" y1="476.96" x2="300.97" y2="22.88"/>
+					<line class="cls-6" x1="286.71" y1="455.49" x2="286.71" y2="22.88"/>
+					<line class="cls-7" x1="272.46" y1="476.96" x2="272.46" y2="22.88"/>
+					<line class="cls-8" x1="258.2" y1="455.49" x2="258.2" y2="22.88"/>
+					<line class="cls-9" x1="243.94" y1="476.96" x2="243.94" y2="22.88"/>
+					<line class="cls-10" x1="229.68" y1="455.49" x2="229.68" y2="22.88"/>
+					<line class="cls-11" x1="215.42" y1="476.96" x2="215.42" y2="22.88"/>
+					<line class="cls-12" x1="201.17" y1="455.49" x2="201.17" y2="22.88"/>
+					<line class="cls-3" x1="444.84" y1="476.96" x2="444.84" y2="22.88"/>
+					<line class="cls-4" x1="316.52" y1="455.49" x2="316.52" y2="22.88"/>
+					<line class="cls-5" x1="330.78" y1="476.96" x2="330.78" y2="22.88"/>
+					<line class="cls-6" x1="345.04" y1="455.49" x2="345.04" y2="22.88"/>
+					<line class="cls-7" x1="359.3" y1="476.96" x2="359.3" y2="22.88"/>
+					<line class="cls-8" x1="373.55" y1="455.49" x2="373.55" y2="22.88"/>
+					<line class="cls-9" x1="387.81" y1="476.96" x2="387.81" y2="22.88"/>
+					<line class="cls-10" x1="402.07" y1="455.49" x2="402.07" y2="22.88"/>
+					<line class="cls-11" x1="416.33" y1="476.96" x2="416.33" y2="22.88"/>
+					<line class="cls-12" x1="430.59" y1="455.49" x2="430.59" y2="22.88"/>
+				</g>
+			</g>
+		</mask>
+		<linearGradient id="Gradiente_sem_nome_61-3" x1="310.01" y1="256.31" x2="401.57" y2="256.31"
+		                xlink:href="#Gradiente_sem_nome_61"/>
+		<mask id="mask-12" x="273.04" y="17.18" width="448.65" height="476.3" maskUnits="userSpaceOnUse">
+			<g class="cls-34">
+				<g class="cls-18">
+					<line class="cls-3" x1="461.72" y1="483.34" x2="461.72" y2="29.27"/>
+					<line class="cls-11" x1="490.23" y1="483.34" x2="490.23" y2="29.27"/>
+					<line class="cls-12" x1="475.98" y1="461.88" x2="475.98" y2="29.27"/>
+				</g>
+				<g class="cls-19">
+					<line class="cls-3" x1="275.07" y1="476.96" x2="275.07" y2="22.88"/>
+					<line class="cls-4" x1="403.4" y1="455.49" x2="403.4" y2="22.88"/>
+					<line class="cls-5" x1="389.14" y1="476.96" x2="389.14" y2="22.88"/>
+					<line class="cls-6" x1="374.88" y1="455.49" x2="374.88" y2="22.88"/>
+					<line class="cls-7" x1="360.62" y1="476.96" x2="360.62" y2="22.88"/>
+					<line class="cls-8" x1="346.36" y1="455.49" x2="346.36" y2="22.88"/>
+					<line class="cls-9" x1="332.1" y1="476.96" x2="332.1" y2="22.88"/>
+					<line class="cls-10" x1="317.84" y1="455.49" x2="317.84" y2="22.88"/>
+					<line class="cls-11" x1="303.59" y1="476.96" x2="303.59" y2="22.88"/>
+					<line class="cls-12" x1="289.33" y1="455.49" x2="289.33" y2="22.88"/>
+					<line class="cls-4" x1="404.69" y1="455.49" x2="404.69" y2="22.88"/>
+					<line class="cls-5" x1="418.94" y1="476.96" x2="418.94" y2="22.88"/>
+					<line class="cls-6" x1="433.2" y1="455.49" x2="433.2" y2="22.88"/>
+					<line class="cls-7" x1="447.46" y1="476.96" x2="447.46" y2="22.88"/>
+					<line class="cls-8" x1="461.72" y1="455.49" x2="461.72" y2="22.88"/>
+					<line class="cls-9" x1="475.98" y1="476.96" x2="475.98" y2="22.88"/>
+					<line class="cls-10" x1="490.24" y1="455.49" x2="490.24" y2="22.88"/>
+				</g>
+			</g>
+		</mask>
+		<linearGradient id="Gradiente_sem_nome_61-4" x1="398.17" y1="256.31" x2="489.74" y2="256.31"
+		                xlink:href="#Gradiente_sem_nome_61"/>
+	</defs>
+	<title>tipoDeVidroEspc0</title>
+	<g id="Layer_1" data-name="Layer 1">
+		<path class="cls-20" d="M311.29,486.12s86.07,2.35,89-.62L398.54,24.67H311.29Z"/>
+		<path class="cls-20" d="M400.33,486.12h78.25l9-9V24.67H400.33Z"/>
+		<path class="cls-21" d="M312.93,483.34l-1.64-456,15.62,2L329,413.75c.26,24.92,23,58.87,49,69.67H313Z"/>
+		<path class="cls-21" d="M402,483.34l-1.67-456,15.62,2,2.12,384.37c.26,24.92,23,58.87,49,69.67H402Z"/>
+		<path class="cls-20" d="M12.42,486.12s86.07,2.35,89-.62L99.67,24.67H12.42Z"/>
+		<path class="cls-20" d="M101.46,486.12h78.25l9-9V24.67H101.46Z"/>
+		<path class="cls-21" d="M14.05,483.34l-1.63-456,15.58,2,2.16,384.37c.26,24.92,23,58.87,49,69.67H14.09Z"/>
+		<path class="cls-21" d="M103.09,483.34l-1.63-456,15.62,2,2.12,384.37c.26,24.92,23,58.87,49,69.67H103.13Z"/>
+		<rect class="cls-22" x="188.71" y="382.92" width="122.59" height="103.21"/>
+		<path class="cls-23" d="M285.52,458H217.89l-13.5-13.5V390.75H299v53.81Z"/>
+		<polygon class="cls-24"
+		         points="233.97 450.23 212.2 428.46 212.2 398.53 291.22 398.53 291.22 428.46 269.45 450.23 233.97 450.23"/>
+	</g>
+	<g style="opacity: 0" id="tratmentoTermico">
+		<g class="cls-25">
+			<g id="tratamentoTermicoLayer">
+				<path class="cls-26" d="M102.7,493.48H20.14l-9-9V19.13H102.7Z"/>
+			</g>
+		</g>
+		<g class="cls-27">
+			<g id="tratamentoTermicoLayer-2" data-name="tratamentoTermicoLayer">
+				<path class="cls-28" d="M190.87,493.48H108.3l-9-9V19.13h91.57Z"/>
+			</g>
+		</g>
+		<g class="cls-29">
+			<g id="tratamentoTermicoLayer-3" data-name="tratamentoTermicoLayer">
+				<path class="cls-30" d="M401.57,493.48H319l-9-9V19.13h91.57Z"/>
+			</g>
+		</g>
+		<g class="cls-31">
+			<g id="tratamentoTermicoLayer-4" data-name="tratamentoTermicoLayer">
+				<path class="cls-32" d="M489.74,493.48H407.17l-9-9V19.13h91.57Z"/>
+			</g>
+		</g>
+	</g>
+	<g style="opacity: 0" id="numeros">
+		<text class="cls-33" transform="translate(35.16 282.02)">1</text>
+		<text class="cls-33" transform="translate(125.16 282.02)">2</text>
+		<text class="cls-33" transform="translate(327.14 282.02)">3</text>
+		<text class="cls-33" transform="translate(421.63 282.02)">4</text>
+	</g>
+</svg>

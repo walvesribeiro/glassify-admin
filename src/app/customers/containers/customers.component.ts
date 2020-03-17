@@ -29,6 +29,8 @@ export class CustomersComponent implements OnInit, OnDestroy {
   };
 
   lastCustomerIndex: number;
+  geometria: any;
+  apoioQuadrado: boolean;
 
   constructor(private modalService: MDBModalService, private store: Store<AppState>, private afAuth: AngularFireAuth) { }
 
@@ -53,11 +55,13 @@ export class CustomersComponent implements OnInit, OnDestroy {
 
       this.customers = customers;
     });
+    this.getGeometria();
   }
 
   get user() {
     return this.afAuth.auth.currentUser;
   }
+
 
   ngOnDestroy() {
     if (this.customersSub) {
@@ -111,4 +115,30 @@ export class CustomersComponent implements OnInit, OnDestroy {
     this.openConfirmModal(customer);
   }
 
+  storeGeometria(el: any) {
+    sessionStorage.setItem('Geometria', el.id);
+    this.getGeometria();
+  }
+  getGeometria() {
+    this.geometria = sessionStorage.getItem('Geometria');
+    return this.geometria;
+  }
+
+  showFig() {
+    if (this.geometria = 'quadrado') {
+      return this.apoioQuadrado = true;
+    }
+  }
+
+  apoio(el: any) {
+    return el;
+  }
+
+  storeApoio(el: any) {
+    return sessionStorage.setItem('Apoio', el.id);
+  }
+
+  getOptions(el: any) {
+     return console.log(el);
+  }
 }

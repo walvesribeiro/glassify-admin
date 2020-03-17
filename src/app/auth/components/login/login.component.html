@@ -6,7 +6,7 @@
 
         <div class="white text-center py-4">
           <h5>
-            <strong>Log in</strong>
+            <strong>Login</strong>
           </h5>
         </div>
 
@@ -23,27 +23,27 @@
             <div class="md-form">
               <input mdbValidate [validateSuccess]="false" type="email" id="email" class="form-control" formControlName="email" mdbInput>
               <label for="email">E-mail</label>
-              <mdb-error *ngIf="email && email.invalid && (email.dirty || email.touched)">Email is required</mdb-error>
+              <mdb-error *ngIf="email && email.invalid && (email.dirty || email.touched)">Um e-mail válido é obrigatório. Por favor, verifique.</mdb-error>
             </div>
 
             <!-- Password -->
             <div class="md-form">
               <input mdbValidate [validateSuccess]="false" type="password" id="password" class="form-control" formControlName="password" mdbInput>
-              <label for="password">Password</label>
-              <mdb-error *ngIf="password && password.invalid && (password.dirty || password.touched)">Password is required</mdb-error>
+              <label for="password">Senha</label>
+              <mdb-error *ngIf="password && password.invalid && (password.dirty || password.touched)">Uma senha válida é obrigatório. Por favor, verifique.</mdb-error>
             </div>
 
             <!-- Sign in button -->
             <button mdbBtn color="primary" block="true" class="my-4 waves-effect z-depth-0"
-              mdbWavesEffect type="submit" (click)="onLogin()">Log in</button>
+              mdbWavesEffect type="submit" (click)="onLogin()">Entrar</button>
 
             <!-- Register -->
-            <p>Not a member?
-              <a routerLink="/register">Register</a>
+            <p>Não possui cadastro ainda?
+              <a routerLink="/cadastrar">Cadastrar</a>
             </p>
 
             <!-- Social login -->
-            <p>or log in with:</p>
+            <p>ou entre com:</p>
             <a type="button" class="mr-4" (click)="onFacebookLogin('facebook')">
               <mdb-icon fab icon="facebook-f"></mdb-icon>
             </a>

@@ -1,0 +1,59 @@
+<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 192.52 242.37">
+	<defs>
+		<style>
+			.cls-1{fill:#fff;stroke:#687477;stroke-width:3px;}.cls-1,.cls-2{stroke-miterlimit:10;}.cls-2{fill:none;stroke:#bad2d8;stroke-width:2px;}.cls-3{fill:#d1e9ed;}.cls-4{fill:#687477;}
+		</style>
+		<symbol id="Novo_símbolo" data-name="Novo símbolo" viewBox="0 0 72.68 97.83">
+			<rect class="cls-1" x="1.5" y="1.5" width="69.68" height="94.83"/>
+		</symbol>
+		<symbol id="Novo_símbolo_1" data-name="Novo símbolo 1" viewBox="0 0 34.32 20.97">
+			<line class="cls-2" x1="22.56" y1="3.99" x2="11.75" y2="16.98"/>
+			<line class="cls-2" x1="16.86" y1="0.64" x2="0.77" y2="19.98"/>
+			<line class="cls-2" x1="33.55" y1="0.99" x2="17.46" y2="20.33"/>
+		</symbol>
+	</defs>
+	<title>apoio</title>
+	<g id="nenhum"></g>
+	<g id="centro">
+		<use width="72.68" height="97.83" transform="translate(22.66 22.21) scale(2.04)" xlink:href="#Novo_símbolo"/>
+		<polygon class="cls-3" points="27.78 218.4 28.66 25.26 34.98 47.5 40.98 205.52 165.57 216.04 27.78 218.4"/>
+		<use width="34.32" height="20.97" transform="translate(67.91 103.6) scale(2.04)" xlink:href="#Novo_símbolo_1"/>
+	</g>
+	<g id="direita">
+		<polygon class="cls-4" points="192.52 19.51 192.52 38.04 174.89 28.77 192.52 19.51"/>
+		<polygon class="cls-4" points="192.52 46.18 192.52 64.71 174.89 55.44 192.52 46.18"/>
+		<polygon class="cls-4" points="192.52 72.85 192.52 91.38 174.89 82.11 192.52 72.85"/>
+		<polygon class="cls-4" points="192.52 99.52 192.52 118.05 174.89 108.79 192.52 99.52"/>
+		<polygon class="cls-4" points="192.52 126.19 192.52 144.72 174.89 135.46 192.52 126.19"/>
+		<polygon class="cls-4" points="192.52 152.86 192.52 171.39 174.89 162.13 192.52 152.86"/>
+		<polygon class="cls-4" points="192.52 179.53 192.52 198.06 174.89 188.8 192.52 179.53"/>
+		<polygon class="cls-4" points="192.52 206.21 192.52 224.74 174.89 215.47 192.52 206.21"/>
+	</g>
+	<g id="esquerda">
+		<polygon class="cls-4" points="0 224.74 0 206.21 17.63 215.47 0 224.74"/>
+		<polygon class="cls-4" points="0 198.06 0 179.53 17.63 188.8 0 198.06"/>
+		<polygon class="cls-4" points="0 171.39 0 152.86 17.63 162.13 0 171.39"/>
+		<polygon class="cls-4" points="0 144.72 0 126.19 17.63 135.46 0 144.72"/>
+		<polygon class="cls-4" points="0 118.05 0 99.52 17.63 108.79 0 118.05"/>
+		<polygon class="cls-4" points="0 91.38 0 72.85 17.63 82.11 0 91.38"/>
+		<polygon class="cls-4" points="0 64.71 0 46.18 17.63 55.44 0 64.71"/>
+		<polygon class="cls-4" points="0 38.04 0 19.51 17.63 28.77 0 38.04"/>
+	</g>
+	<g id="topo">
+		<polygon class="cls-4" points="16.45 0 34.98 0 25.72 17.63 16.45 0"/>
+		<polygon class="cls-4" points="44.42 0 62.95 0 53.69 17.63 44.42 0"/>
+		<polygon class="cls-4" points="72.39 0 90.92 0 81.66 17.63 72.39 0"/>
+		<polygon class="cls-4" points="100.37 0 118.89 0 109.63 17.63 100.37 0"/>
+		<polygon class="cls-4" points="128.34 0 146.87 0 137.6 17.63 128.34 0"/>
+		<polygon class="cls-4" points="156.31 0 174.84 0 165.57 17.63 156.31 0"/>
+	</g>
+	<g id="baixo">
+		<polygon class="cls-4" points="174.84 242.37 156.31 242.37 165.57 224.74 174.84 242.37"/>
+		<polygon class="cls-4" points="146.87 242.37 128.34 242.37 137.6 224.74 146.87 242.37"/>
+		<polygon class="cls-4" points="118.89 242.37 100.37 242.37 109.63 224.74 118.89 242.37"/>
+		<polygon class="cls-4" points="90.92 242.37 72.39 242.37 81.66 224.74 90.92 242.37"/>
+		<polygon class="cls-4" points="62.95 242.37 44.42 242.37 53.69 224.74 62.95 242.37"/>
+		<polygon class="cls-4" points="34.98 242.37 16.45 242.37 25.72 224.74 34.98 242.37"/>
+	</g>
+</svg>

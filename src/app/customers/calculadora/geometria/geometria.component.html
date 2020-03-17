@@ -1,0 +1,158 @@
+<div #App class="geometria">
+
+  <h1>Selecione a Forma geometrica</h1>
+  <div class="geometria__options" [formGroup]="geometriaForm">
+    <div class="geometria__item">
+      <a type="button">
+        <input type="radio" formControlName="Geometria"  name="Geometria" class="geometria__button" #quadrado id="quadrado" value="quadrado" (change)="forma(quadrado)" (click)="storeItem(quadrado)" >
+        <img src="../../../../assets/geometria/geometria0.svg" alt="">
+      </a>
+    </div>
+    <div class="geometria__item">
+      <a type="button">
+        <input type="radio" formControlName="Geometria" name="Geometria" class="geometria__button" #semicirculo id="semicirculo" value="semicirculo" (change)="forma(semicirculo)" (click)="storeItem(semicirculo)">
+        <img src="../../../../assets/geometria/geometria1.svg" alt="">
+      </a>
+    </div>    
+    <div class="geometria__item">
+      <a type="button">
+        <input type="radio" formControlName="Geometria" name="Geometria" class="geometria__button" #circular id="circular" value="circular" (change)="forma(circular)" (click)="storeItem(circular)">
+        <img src="../../../../assets/geometria/geometria2.svg" alt="">
+      </a>
+    </div>
+    <div class="geometria__item">
+      <a type="button">
+        <input type="radio" formControlName="Geometria" name="Geometria" class="geometria__button" #trapezio id="trapezio" value="trapezio" (change)="forma(trapezio)" (click)="storeItem(trapezio)">
+        <img src="../../../../assets/geometria/geometria3.svg" alt="">
+      </a>
+    </div>    
+    <div class="geometria__item">
+      <a type="button">
+        <input type="radio" formControlName="Geometria" name="Geometria" class="geometria__button" #triretangulo id="triretangulo" value="triretangulo" (change)="forma(triretangulo)" (click)="storeItem(triretangulo)">
+        <img src="../../../../assets/geometria/geometria4.svg" alt="">
+      </a>
+    </div>    
+    <div class="geometria__item">    
+      <a type="button">
+        <input type="radio" formControlName="Geometria" name="Geometria" class="geometria__button" #triescaleno id="triescaleno" value="triescaleno" (change)="forma(triescaleno)" (click)="storeItem(triescaleno)">
+        <img src="../../../../assets/geometria/geometria5.svg" alt="">   
+      </a>
+    </div>
+  </div>
+  
+  <p> Geometria: {{geometriaForm.value | json}}</p>
+  
+  <h1>Selecione o lado livre</h1>
+  <div  [formGroup]="geometriaForm" (change)="definePressao($event)">
+    <div class="geometria__options" *ngIf="geometriaForm.get('Geometria').value === 'quadrado'">
+      <div class="geometria__item">    
+        <a type=button>
+          <input type="radio" formControlName="Apoio" name="Apoio" class="geometria__button" #Qlados value="4lados" (click)="storeItem(Qlados)" >
+          <img src="../../../../assets/geometria/geometria0.svg" alt="">
+        </a>
+        <a type="button">
+          <input type="radio" formControlName="Apoio" name="Apoio" class="geometria__button" #Tlados value="3lados" (click)="storeItem(Tlados)" >
+          <img src="../../../../assets/geometria/geometria0.svg" alt="">
+        </a>
+        <a type="button">
+          <input type="radio" formControlName="Apoio" name="Apoio" class="geometria__button" #Dlados value="2lados" (click)="storeItem(Dlados)" >
+          <img src="../../../../assets/geometria/geometria0.svg" alt="">
+        </a>
+      </div>
+    </div>
+    <div  class="geometria__options" *ngIf="geometriaForm.get('Geometria').value === 'semicirculo'">
+      <div class="geometria__item">    
+        <a type=button>
+          <input type="radio" formControlName="Apoio" name="Apoio" class="geometria__button" #semLadoLivreU id="semLadoLivreU" value="semLadoLivre" (click)="storeItem(semLadoLivreU)">
+          <img src="../../../../assets/geometria/geometria1.svg" alt="">
+        </a>
+      </div>
+    </div>
+    <div class="geometria__options" *ngIf="geometriaForm.get('Geometria').value === 'circular'">
+      <div class="geometria__item">    
+        <a type=button>
+          <input type="radio" formControlName="Apoio" name="Apoio" class="geometria__button" #semLadoLivreD id="semLadoLivreD" value="semLadoLivre" (click)="storeItem(semLadoLivreD)">
+          <img src="../../../../assets/geometria/geometria2.svg" alt="">
+        </a>
+      </div>
+    </div>    
+
+    <div class="geometria__options" *ngIf="geometriaForm.get('Geometria').value === 'trapezio'">
+      <div class="geometria__item">    
+        <a type=button>
+          <input type="radio" formControlName="Apoio" name="Apoio" class="geometria__button" #semLadoLivreT id="semLadoLivreT" value="semLadoLivre" (click)="storeItem(semLadoLivreT)">
+          <img src="../../../../assets/geometria/geometria3.svg" alt="">
+        </a>
+      </div>
+    </div>
+
+    <div class="geometria__options" *ngIf="geometriaForm.get('Geometria').value === 'triretangulo'">
+      <div class="geometria__item">    
+        <a type=button>
+          <input type="radio" formControlName="Apoio" name="Apoio" class="geometria__button" #semLadoLivreQ id="semLadoLivreQ" value="semLadoLivre" (click)="storeItem(semLadoLivreQ)">
+          <img src="../../../../assets/geometria/geometria4.svg" alt="">
+        </a>
+      </div>
+    </div>    
+
+    <div  class="geometria__options" *ngIf="geometriaForm.get('Geometria').value === 'triescaleno'">
+      <div class="geometria__item">    
+        <a type=button>
+          <input type="radio" formControlName="Apoio" name="Apoio" class="geometria__button" #semLadoLivreC id="semLadoLivreC" value="semLadoLivre" (click)="storeItem(semLadoLivreC)">
+          <img src="../../../../assets/geometria/geometria5.svg" alt="">   
+        </a>
+      </div>
+    </div>    
+
+  </div>
+  
+  <h1>Selecione Aaplicação</h1>
+
+  <div class="geometria__options" [formGroup]="geometriaForm" >
+    <div>
+      <input type="radio" formControlName="ladoApoio" name="ladoApoio" class="geometria__button" #altura id="altura" value="altura" (click)="storeItem(altura)">
+      <img src="../../../../assets/geometria/geometria5.svg" alt="">   
+      <label for="altura">Altura</label>
+      
+      <input type="radio" formControlName="ladoApoio" name="ladoApoio" class="geometria__button" #lateral id="lateral" value="lateral" (click)="storeItem(lateral)">
+      <img src="../../../../assets/geometria/geometria5.svg" alt="">   
+      <label for="lateral">lateral</label>
+
+    </div>    
+  </div>
+  
+  <h1>Selecione Aaplicação</h1>
+  
+  <div class="geometria__options" [formGroup]="geometriaForm">
+    <div>
+      <input type="number" formControlName="Inclinacao" name="Inclinacao" class="geometria__button" #Inclinacao id="Inclinacao" max="90" min="0" (change)="storeItem(Inclinacao)">
+      <input type="radio" formControlName="Aplicacao" name="Aplicacao" class="geometria__button" #interna id="interna" value="interna" (click)="storeItem(interna)">
+      <label for="interna">Interna</label>
+      
+      <input type="radio" formControlName="Aplicacao" name="Aplicacao" class="geometria__button" #externa id="externa" value="externa" (click)="storeItem(externa)">
+      <label for="externa">Externa</label>
+    </div>    
+  </div>
+  <h1>Selecione Alatura</h1>
+  
+  <div class="geometria" [formGroup]="geometriaForm">
+    <input type="number" formControlName="Largura" name="Largura" class="geometria" #Largura id="Largura" max="" min="0" (change)="storeItem(Largura); getLargura(Largura)">
+    <input type="number" formControlName="Altura" name="Altura" class="geometria__" #Altura id="Altura" max="90" min="0" (change)="storeItem(Altura);getAltura(Altura)">
+    <input type="number" formControlName="Pressao" name="Pressao" class="geometria__" #Pressao id="Pressao" max="6000" min="600" (change)="storeItem(Pressao)">
+    
+  </div>
+  <h1>Selecione Tipo de vidro</h1>
+
+  <div class="geometria__options" [formGroup]="geometriaForm">
+    <div>
+      <input type="radio" formControlName="TipoVidro" name="TipoVidro" class="geometria__button" #monolitico id="monolitico" value="monolitico" (click)="storeItem(monolitico); Enviar()">
+      <img src="../../../../assets/geometria/geometria5.svg" alt="">   
+      
+      <input type="radio" formControlName="TipoVidro" name="TipoVidro" class="geometria__button" #laminado id="laminado" value="laminado" (click)="storeItem(laminado)">
+      <img src="../../../../assets/geometria/geometria5.svg" alt="">   
+      
+      <input type="radio" formControlName="TipoVidro" name="TipoVidro" class="geometria__button" #insulado id="insulado" value="insulado" (click)="storeItem(insulado)">
+      <img src="../../../../assets/geometria/geometria5.svg" alt="">   
+    </div>    
+  </div>
+</div>
