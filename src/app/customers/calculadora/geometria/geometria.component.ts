@@ -44,7 +44,7 @@ export class GeometriaComponent implements OnInit, OnChanges {
   PP: number;
   omega: any;
   flechaAtuante: number;
-  alpha: number;
+  alpha: any;
   pressaoCalculo: number;
   menorValor: number;
   flechaMinina: number;
@@ -123,6 +123,7 @@ export class GeometriaComponent implements OnInit, OnChanges {
       TipoVidro: new FormControl(sessionStorage.getItem('TipoVidro')),
     });
   }
+
   storeItem(el: any) {
     sessionStorage.setItem(el.name, el.value);
   }
@@ -136,7 +137,18 @@ export class GeometriaComponent implements OnInit, OnChanges {
     return this.apoio;
   }
   get geoForm() {
-    return this.geometriaForm.controls.Geometria = this.geometria;
+    return this.geometria = this.geometriaForm.controls.Geometria;
+  }
+
+  get Altura() {
+    return this.geometriaForm.controls.Altura.value;
+  }
+
+  get Largura() {
+    return this.geometriaForm.controls.Largura.value;
+  }
+  get TipoVidroAplicado() {
+    return this.geometriaForm.controls.TipoVidro.value;
   }
 
   flecha(element: any) {
@@ -156,7 +168,7 @@ export class GeometriaComponent implements OnInit, OnChanges {
   pressaoP(element: any) {
     this.PP = Number(2.5) * Number(this.gravidade) * Number(element);
     console.log(`Esse é o PP da espessura ${element}=> ${this.PP}`);
-    this.ladosLivres();
+    // this.ladosLivres();
   }
   search(nameKey: any, myArray: any) {
     for (let i = 0; i < myArray.length; i++) {
@@ -164,45 +176,49 @@ export class GeometriaComponent implements OnInit, OnChanges {
             return myArray[i];
         }
     }
-}
-  ladosLivres() {
-    switch (this.apoio) {
-        case '2apoiosTopoLivre':
+  }
+
+  ladosLivres(tipoApoio: string, ladoApoio: string) {
+    this.apoio = tipoApoio;
+    this.altura = Number(this.Altura);
+    this.largura = Number(this.Largura);
+    switch (tipoApoio && ladoApoio) {
+        case '2lados' && 'altura':
                 this.aspectRatioCalcEspessura = this.altura / this.largura;
                 this.deflexao = Number(this.altura  / this.largura).toFixed(2);
                 this.alpha = 2.11430;
             break;
-        case '2apoiosLadoLivre':
+        case '2lados' && 'lateral':
                 this.aspectRatioCalcEspessura = this.largura / this.altura;
                 this.deflexao = Number(this.largura / this.altura ).toFixed(2);
                 this.alpha = 2.11430;
             break;
-        case '3apoiosMenorLivre':
+        case '3lados' && 'MenorLivre':
                 this.aspectRatioCalcEspessura = this.largura / this.altura;
                 this.deflexao = Number(this.largura / this.altura ).toFixed(2);
                 this.alpha = this.search(`${this.deflexao}`, this.array3lados);
-                // this.alpha = this.alpha;
+                [this.alpha].filter( (x: any) => this.alpha = Number(x.value));
             break;
-        case '3apoiosMaiorLivre':
+            case '3lados' && 'MaiorLivre':
                 this.aspectRatioCalcEspessura = this.altura / this.largura;
                 this.deflexao = Number(this.altura / this.largura).toFixed(2);
                 this.alpha = this.search(`${this.deflexao}`, this.array3lados);
-                this.alpha = this.alpha;
+                [this.alpha].filter( (x: any) => this.alpha = Number(x.value));
             break;
         case '4apoios': //4lados apoiados
                 this.aspectRatioCalcEspessura = this.maiorValor / this.menorValor;
                 this.deflexao = Number(this.menorValor / this.maiorValor).toFixed(2);
                 this.alpha = this.search(`${this.deflexao}`, this.array4lados);
-                // this.alpha = this.alpha;
+                [this.alpha].filter( (x: any) => this.alpha = Number(x.value));
             break;
         default: //4lados apoiados
                 this.aspectRatioCalcEspessura = this.maiorValor / this.menorValor;
                 this.deflexao = Number(this.menorValor / this.maiorValor).toFixed(2);
                 this.alpha = this.search(`${this.deflexao}`, this.array4lados);
-                // this.alpha = this.alpha;
+                [this.alpha].filter( (x: any) => this.alpha = Number(x.value));
             break;
     }
-}
+  }
 
   definePressao(pressao: string | null | undefined) {
     if (pressao !== null || pressao !== '' || pressao !== undefined) {
@@ -262,17 +278,17 @@ export class GeometriaComponent implements OnInit, OnChanges {
     console.log(geo.value);
 
     geo.value === 'trapezio' || geo.value === 'semicirculo'  ? this.InputC = true : this.InputC = false;
-    const area = type[geo.value]();
-    console.log(area);
+    this.area = type[geo.value]();
+    console.log(this.area, 'Area');
   }
 
 
   Enviar() {
     console.log(this.geometriaForm.value);
-
   }
 
   baseEspessuraVidro() {
+    this.tipoVidroAplicado = this.TipoVidroAplicado;
     switch (this.tipoVidroAplicado) {
       case 'monolitico':
         console.log('chamou a função monolitico');
@@ -356,146 +372,161 @@ export class GeometriaComponent implements OnInit, OnChanges {
         // vidro1 = $('#subtipoVidro1').value;
         // vidro2 = $('#subtipoVidro2').value;
       }
-    }
-      base(tipo: any) {
-          if (tipo === 'monolitico') {
-              if (this.tipoTratamentoTermico == 'comum') {
-                  console.log('Insulado-1 monolitico com vidro comum');
-                  this.espessuraVidro = [3, 4, 5, 6, 8, 10, 12, 15, 19];
-              } else {
-                  console.log('Insulado-1 monolitico com vidro temperado');
-                  this.espessuraVidro = [5, 6, 8, 10, 12, 15, 19];
-              }
-              this.espessuraVidro.forEach((element: any) => {
-                  console.log(`A espessura do vidro 1 é ${element} `);
-                  this.insulado1Log = Number(element);
-                  this.insulado1LogID = Number(element);
-                  this.be1 = element;
-                  this.numeroP = element;
-                  this.base2(this.vidro2);
-              });
+  }
+  base(tipo: any) {
+      if (tipo === 'monolitico') {
+          if (this.tipoTratamentoTermico == 'comum') {
+              console.log('Insulado-1 monolitico com vidro comum');
+              this.espessuraVidro = [3, 4, 5, 6, 8, 10, 12, 15, 19];
           } else {
-              if (this.tipoTratamentoTermico === 'comum') {
-                  console.log('Insulado-1 laminado com vidro comum');
-                  this.espessuraVidro = [{a: 3, b: 3},
-                     {a: 3, b: 4},
-                     {a: 4, b: 4},
-                     {a: 4, b: 5},
-                     {a: 4, b: 6},
-                     {a: 5, b: 5},
-                     {a: 5, b: 6},
-                     {a: 6, b: 6},
-                     {a: 6, b: 8},
-                     {a: 8, b: 8},
-                     {a: 8, b: 10},
-                     {a: 10, b: 10},
-                     {a: 10, b: 12},
-                     {a: 12, b: 12}];
-              } else {
-                  console.log('Insulado-2 laminado-Temperado');
-                  this.espessuraVidro = [{a: 5, b: 5},
-                     {a: 5, b: 6},
-                     {a: 6, b: 6},
-                     {a: 6, b: 8},
-                     {a: 8, b: 8},
-                     {a: 8, b: 10},
-                     {a: 10, b: 10}];
-              }
-              this.espessuraVidro.forEach((element: any) => {
-                  console.log(element);
-                  const laminado = Number(element.a) + Number(element.b);
-                  console.log(`A espessura do vidro 1 é ${Number(element.a)} + ${Number(element.b)} => ${laminado} `);
-                  this.insulado1Log = eval(`${Number(element.a)} + ${Number(element.b)}`);
-                  this.insulado1LogID = eval(`${Number(element.a)}-${Number(element.b)}`);
-                  this.numeroP = laminado;
-                  this.be1 = Number(laminado) / (1.30 * 0.9);
-                  this.base2(this.vidro2);
-              });
+              console.log('Insulado-1 monolitico com vidro temperado');
+              this.espessuraVidro = [5, 6, 8, 10, 12, 15, 19];
           }
+          this.espessuraVidro.forEach((element: any) => {
+              console.log(`A espessura do vidro 1 é ${element} `);
+              this.insulado1Log = Number(element);
+              this.insulado1LogID = Number(element);
+              this.be1 = element;
+              this.numeroP = element;
+              this.base2(this.vidro2);
+          });
+      } else {
+          if (this.tipoTratamentoTermico === 'comum') {
+              console.log('Insulado-1 laminado com vidro comum');
+              this.espessuraVidro = [{a: 3, b: 3},
+                  {a: 3, b: 4},
+                  {a: 4, b: 4},
+                  {a: 4, b: 5},
+                  {a: 4, b: 6},
+                  {a: 5, b: 5},
+                  {a: 5, b: 6},
+                  {a: 6, b: 6},
+                  {a: 6, b: 8},
+                  {a: 8, b: 8},
+                  {a: 8, b: 10},
+                  {a: 10, b: 10},
+                  {a: 10, b: 12},
+                  {a: 12, b: 12}];
+          } else {
+              console.log('Insulado-2 laminado-Temperado');
+              this.espessuraVidro = [{a: 5, b: 5},
+                  {a: 5, b: 6},
+                  {a: 6, b: 6},
+                  {a: 6, b: 8},
+                  {a: 8, b: 8},
+                  {a: 8, b: 10},
+                  {a: 10, b: 10}];
+          }
+          this.espessuraVidro.forEach((element: any) => {
+              console.log(element);
+              const laminado = Number(element.a) + Number(element.b);
+              console.log(`A espessura do vidro 1 é ${Number(element.a)} + ${Number(element.b)} => ${laminado} `);
+              this.insulado1Log = eval(`${Number(element.a)} + ${Number(element.b)}`);
+              this.insulado1LogID = eval(`${Number(element.a)}-${Number(element.b)}`);
+              this.numeroP = laminado;
+              this.be1 = Number(laminado) / (1.30 * 0.9);
+              this.base2(this.vidro2);
+          });
       }
+  }
 
-      base2 = (tipo: string) => {
-          if (tipo === 'monolitico') {
-              if (this.tipoTratamentoTermico === 'comum') {
-                  console.log('Insulado-2 monolitico com vidro comum');
-                  this.espessuraVidro = [3, 4, 5, 6, 8, 10, 12, 15, 19];
-              } else {
-                  console.log('Insulado-2 monolitico com vidro temperado');
-                  this.espessuraVidro = [5, 6, 8, 10, 12, 15, 19];
-              }
-              this.espessuraVidro.forEach((element: any) => {
-                  console.log(`A espessura do vidro 2 é ${element} `);
-                  this.baseID = `${this.insulado1LogID}-${element}`;
-                  console.log(`ID da Div => ****${this.baseID}****`);
-                  this.be2 = element;
-                  this.insulado2Log = `${element}`;
-                  this.numeroP2 = this.be2;
-                  this.resultado(this.be1, this.be2);
-              });
+  base2 = (tipo: string) => {
+      if (tipo === 'monolitico') {
+          if (this.tipoTratamentoTermico === 'comum') {
+              console.log('Insulado-2 monolitico com vidro comum');
+              this.espessuraVidro = [3, 4, 5, 6, 8, 10, 12, 15, 19];
           } else {
-              if (this.tipoTratamentoTermico == 'comum') {
-                  console.log('Insulado-2 laminado com vidro comum');
-                  this.espessuraVidro = [{a: 3, b: 3},
-                     {a: 3, b: 4},
-                     {a: 4, b: 4},
-                     {a: 4, b: 5},
-                     {a: 4, b: 6},
-                     {a: 5, b: 5},
-                     {a: 5, b: 6},
-                     {a: 6, b: 6},
-                     {a: 6, b: 8},
-                     {a: 8, b: 8},
-                     {a: 8, b: 10},
-                     {a: 10, b: 10},
-                     {a: 10, b: 12},
-                     {a: 12, b: 12}];
-              } else {
-                  console.log('Insulado-2 laminado-Temperado');
-                  this.espessuraVidro = [{a: 5, b: 5},
-                     {a: 5, b: 6},
-                     {a: 6, b: 6},
-                     {a: 6, b: 8},
-                     {a: 8, b: 8},
-                     {a: 8, b: 10},
-                     {a: 10, b: 10}];
-              }
-              this.espessuraVidro.forEach((element: any) => {
-                  console.log(element);
-                  const laminado = Number(element.a) + Number(element.b);
-                  console.log(`A espessura do vidro 2 é ${Number(element.a)} + ${Number(element.b)} => ${laminado} `);
-                  this.baseID = `${this.insulado1LogID}-${Number(element.a)}-${Number(element.b)}`;
-                  console.log(`ID da Div => ****${this.baseID}****`);
-                  this.numeroP2 = laminado;
-                  this.be2 = Number(laminado) / (1.30 * 0.9);
-                  this.insulado2Log = `${element.a} + ${element.b}`;
-                  this.resultado(this.be1, this.be2);
-              });
+              console.log('Insulado-2 monolitico com vidro temperado');
+              this.espessuraVidro = [5, 6, 8, 10, 12, 15, 19];
           }
+          this.espessuraVidro.forEach((element: any) => {
+              console.log(`A espessura do vidro 2 é ${element} `);
+              this.baseID = `${this.insulado1LogID}-${element}`;
+              console.log(`ID da Div => ****${this.baseID}****`);
+              this.be2 = element;
+              this.insulado2Log = `${element}`;
+              this.numeroP2 = this.be2;
+              this.resultado(this.be1, this.be2);
+          });
+      } else {
+          if (this.tipoTratamentoTermico == 'comum') {
+              console.log('Insulado-2 laminado com vidro comum');
+              this.espessuraVidro = [{a: 3, b: 3},
+                  {a: 3, b: 4},
+                  {a: 4, b: 4},
+                  {a: 4, b: 5},
+                  {a: 4, b: 6},
+                  {a: 5, b: 5},
+                  {a: 5, b: 6},
+                  {a: 6, b: 6},
+                  {a: 6, b: 8},
+                  {a: 8, b: 8},
+                  {a: 8, b: 10},
+                  {a: 10, b: 10},
+                  {a: 10, b: 12},
+                  {a: 12, b: 12}];
+          } else {
+              console.log('Insulado-2 laminado-Temperado');
+              this.espessuraVidro = [{a: 5, b: 5},
+                  {a: 5, b: 6},
+                  {a: 6, b: 6},
+                  {a: 6, b: 8},
+                  {a: 8, b: 8},
+                  {a: 8, b: 10},
+                  {a: 10, b: 10}];
+          }
+          this.espessuraVidro.forEach((element: any) => {
+              console.log(element);
+              const laminado = Number(element.a) + Number(element.b);
+              console.log(`A espessura do vidro 2 é ${Number(element.a)} + ${Number(element.b)} => ${laminado} `);
+              this.baseID = `${this.insulado1LogID}-${Number(element.a)}-${Number(element.b)}`;
+              console.log(`ID da Div => ****${this.baseID}****`);
+              this.numeroP2 = laminado;
+              this.be2 = Number(laminado) / (1.30 * 0.9);
+              this.insulado2Log = `${element.a} + ${element.b}`;
+              this.resultado(this.be1, this.be2);
+          });
       }
-      coeficienteTipoVidro() {
-        switch (this.tipoVidro) {
-            case 'float':
-                    this.fatorE3 = 1.00;
-                    this.omega = 2;
-                break;
-            case 'Impresso':
-                    this.fatorE3 = 1.10;
-                    this.omega = 2;
-                break;
-            case 'Aramado':
-                    this.fatorE3 = 1.20;
-                    this.omega = 2;
-                break;
-            case 'termo-endurecido':
-                    this.fatorE3 = 0.80;
-                    this.omega = 2;
-                break;
-            default:
-                this.fatorE3 = 1;
-                this.omega = 1;
-                break;
-        }
+  }
+  coeficienteTipoVidro() {
+    switch (this.tipoVidro) {
+        case 'float':
+                this.fatorE3 = 1.00;
+                this.omega = 2;
+            break;
+        case 'Impresso':
+                this.fatorE3 = 1.10;
+                this.omega = 2;
+            break;
+        case 'Aramado':
+                this.fatorE3 = 1.20;
+                this.omega = 2;
+            break;
+        case 'termo-endurecido':
+                this.fatorE3 = 0.80;
+                this.omega = 2;
+            break;
+        default:
+            this.fatorE3 = 1;
+            this.omega = 1;
+            break;
     }
+  }
+
+    calcular(form: any) {
+      console.log(form.Geometria.value);
+
+      this.forma(form.Geometria);
+      this.ladosLivres(form.Apoio.value, form.ladoApoio.value);
+
+      console.log(this.apoio, this.alpha,
+                this.aspectRatioCalcEspessura,
+                this.altura, this.largura,
+                this.deflexao
+                )
+
+    }
+
             calculo(element: any) {
               this.PV = this.pressao;
               this.coefTipoVidro = this.coeficienteTipoVidro();
