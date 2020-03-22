@@ -60,7 +60,7 @@
         </a>
       </div>
     </div>
-    <div  class="geometria__options" *ngIf="geometriaForm.get('Geometria').value === 'semicirculo'">
+    <div  class="geometria__options" *ngIf="this.geometriaForm.get('Geometria').value === 'semicirculo'">
       <div class="geometria__item">    
         <a type=button>
           <input type="radio" formControlName="Apoio" name="Apoio" class="geometria__button" #semLadoLivreU id="semLadoLivreU" value="semLadoLivre" (click)="storeItem(semLadoLivreU)">
@@ -109,7 +109,7 @@
   <h1>Selecione Aaplicação</h1>
 
   <div class="geometria__options" [formGroup]="geometriaForm" >
-    <div>
+    <div *ngIf="geometriaForm.get('Apoio').value === '2lados'">
       <input type="radio" formControlName="ladoApoio" name="ladoApoio" class="geometria__button" #altura id="altura" value="altura" (click)="storeItem(altura)">
       <img src="../../../../assets/geometria/geometria5.svg" alt="">   
       <label for="altura">Altura</label>
@@ -117,8 +117,17 @@
       <input type="radio" formControlName="ladoApoio" name="ladoApoio" class="geometria__button" #lateral id="lateral" value="lateral" (click)="storeItem(lateral)">
       <img src="../../../../assets/geometria/geometria5.svg" alt="">   
       <label for="lateral">lateral</label>
-
     </div>    
+
+    <div *ngIf="geometriaForm.get('Apoio').value === '3lados'">
+      <input type="radio" formControlName="ladoApoio" name="ladoApoio" class="geometria__button" #MenorLivre id="MenorLivre" value="MenorLivre" (click)="storeItem(MenorLivre)">
+      <img src="../../../../assets/geometria/geometria5.svg" alt="">   
+      <label for="MenorLivre">Menor lado livre</label>
+      
+      <input type="radio" formControlName="ladoApoio" name="ladoApoio" class="geometria__button" #MaiorLivre id="MaiorLivre" value="MaiorLivre" (click)="storeItem(MaiorLivre)">
+      <img src="../../../../assets/geometria/geometria5.svg" alt="">   
+      <label for="MaiorLivre">Maior lado livre</label>
+    </div>  
   </div>
   
   <h1>Selecione Aaplicação</h1>
@@ -126,6 +135,8 @@
   <div class="geometria__options" [formGroup]="geometriaForm">
     <div>
       <input type="number" formControlName="Inclinacao" name="Inclinacao" class="geometria__button" #Inclinacao id="Inclinacao" max="90" min="0" (change)="storeItem(Inclinacao)">
+    </div>
+    <div>
       <input type="radio" formControlName="Aplicacao" name="Aplicacao" class="geometria__button" #interna id="interna" value="interna" (click)="storeItem(interna)">
       <label for="interna">Interna</label>
       
@@ -156,3 +167,5 @@
     </div>    
   </div>
 </div>
+
+<button (click)="calcular(geometriaForm.controls)">Calcular</button>
