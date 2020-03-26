@@ -44,7 +44,7 @@
   
   <h1>Selecione o lado livre</h1>
   <div  [formGroup]="geometriaForm" (change)="definePressao($event)">
-    <div class="geometria__options" *ngIf="geometriaForm.get('Geometria').value === 'quadrado'">
+    <div class="geometria__options" *ngIf="this.geometriaForm.get('Geometria').value === 'quadrado'">
       <div class="geometria__item">    
         <a type=button>
           <input type="radio" formControlName="Apoio" name="Apoio" class="geometria__button" #Qlados value="4lados" (click)="storeItem(Qlados)" >
@@ -142,7 +142,16 @@
       
       <input type="radio" formControlName="Aplicacao" name="Aplicacao" class="geometria__button" #externa id="externa" value="externa" (click)="storeItem(externa)">
       <label for="externa">Externa</label>
-    </div>    
+    </div>   
+    
+    <div>
+      <p>Tipo do pavimento</p>
+      <input type="radio" formControlName="TipoPavimento" name="TipoPavimento" class="geometria__button" #Acima id="Acima" value="Acima" (click)="storeItem(Acima)">
+      <label for="Acima">Acima de 6m</label>
+      
+      <input type="radio" formControlName="TipoPavimento" name="TipoPavimento" class="geometria__button" #Abaixo id="Abaixo" value="Abaixo" (click)="storeItem(Abaixo)">
+      <label for="Abaixo">Abaixo de 6m</label>
+    </div>  
   </div>
   <h1>Selecione Alatura</h1>
   
@@ -156,16 +165,41 @@
 
   <div class="geometria__options" [formGroup]="geometriaForm">
     <div>
-      <input type="radio" formControlName="TipoVidro" name="TipoVidro" class="geometria__button" #monolitico id="monolitico" value="monolitico" (click)="storeItem(monolitico); Enviar()">
-      <img src="../../../../assets/geometria/geometria5.svg" alt="">   
+      <input type="radio" formControlName="TipoVidro" name="TipoVidro" class="geometria__button" #monolitico id="monolitico" value="monolitico" (click)="storeItem(monolitico)">
+      <img src="../../../../assets/geometria/geometria5.svg" alt=""> 
+      <label>Monolitico</label>  
       
       <input type="radio" formControlName="TipoVidro" name="TipoVidro" class="geometria__button" #laminado id="laminado" value="laminado" (click)="storeItem(laminado)">
       <img src="../../../../assets/geometria/geometria5.svg" alt="">   
-      
+      <label>Laminado</label>  
+
       <input type="radio" formControlName="TipoVidro" name="TipoVidro" class="geometria__button" #insulado id="insulado" value="insulado" (click)="storeItem(insulado)">
+      <img src="../../../../assets/geometria/geometria5.svg" alt="">   
+      <label>Insulado</label>  
+    </div>    
+  </div>
+
+  <div class="geometria__options" [formGroup]="geometriaForm">
+    <div>
+      <input type="radio" formControlName="TipoTratamento" name="TipoTratamento" class="geometria__button" #comum id="comum" value="comum" (click)="storeItem(comum)">
+      <img src="../../../../assets/geometria/geometria5.svg" alt="">   
+      
+      <input type="radio" formControlName="TipoTratamento" name="TipoTratamento" class="geometria__button" #laminado id="laminado" value="laminado" (click)="storeItem(laminado)">
+      <img src="../../../../assets/geometria/geometria5.svg" alt="">   
+      
+      <input type="radio" formControlName="TipoTratamento" name="TipoTratamento" class="geometria__button" #insulado id="insulado" value="insulado" (click)="storeItem(insulado)">
       <img src="../../../../assets/geometria/geometria5.svg" alt="">   
     </div>    
   </div>
 </div>
 
 <button (click)="calcular(geometriaForm.controls)">Calcular</button>
+
+<div class="geometria__options" *ngFor="let vidro of ArrayResultados">
+  <p>EspessuraVidro: {{vidro.EspessuraVidro}}</p>
+  <p>EspessuraMinima: {{vidro.EspessuraMinima}}</p>
+  <p>Resultado de Espessura: {{vidro.EspessuraBroken === 'OK'? 'Passou' : 'Quebrou' }}</p>
+  <p>FlechaMinima: {{vidro.FlechaMinima}}</p>
+  <p>FlechaAtuante: {{vidro.FlechaAtuante}}</p>
+  <p>Resultado de Flecha: {{vidro.FlechaBroken === 'OK'? 'Passou' : 'Quebrou' }}</p>
+</div>
