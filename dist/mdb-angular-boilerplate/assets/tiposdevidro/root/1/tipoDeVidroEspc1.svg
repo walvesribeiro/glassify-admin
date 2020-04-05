@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
+	<defs>
+		<style>
+			.cls-1{stroke:#fff;stroke-width:3.26px;}.cls-1,.cls-18{stroke-miterlimit:10;}.cls-1,.cls-28{filter:url(#luminosity-invert);}.cls-2{mask:url(#mask);}.cls-10,.cls-11,.cls-12,.cls-3,.cls-4,.cls-5,.cls-6,.cls-7,.cls-8,.cls-9{fill:none;stroke:#1d1e1c;stroke-linecap:round;stroke-dasharray:0
+			21.18;}.cls-3{stroke-width:4.07px;}.cls-4{stroke-width:11.4px;}.cls-5{stroke-width:10.59px;}.cls-6{stroke-width:9.77px;}.cls-7{stroke-width:8.96px;}.cls-8{stroke-width:8.14px;}.cls-9{stroke-width:7.33px;}.cls-10{stroke-width:6.52px;}.cls-11{stroke-width:5.7px;}.cls-12{stroke-width:4.88px;}.cls-13{mask:url(#mask-2);}.cls-14{mask:url(#mask-3);}.cls-15{mask:url(#mask-4);}.cls-16{mask:url(#mask-5);}.cls-17{mask:url(#mask-6);}.cls-18{fill:#fff;stroke:#647073;stroke-width:9.56px;}.cls-19{fill:#d1e8ed;}.cls-20,.cls-27{fill:#647073;}.cls-21{mask:url(#mask-7);}.cls-22{fill:url(#Gradiente_sem_nome_61);}.cls-23{mask:url(#mask-8);}.cls-24{fill:url(#Gradiente_sem_nome_61-2);}.cls-25{mask:url(#mask-9);}.cls-26{fill:url(#Gradiente_sem_nome_61-3);}.cls-27{font-size:153.53px;font-family:MrsEavesAllPetiteCapsOT,
+			Mrs Eaves;}
+		</style>
+		<filter id="luminosity-invert" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feColorMatrix values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
+		</filter>
+		<mask id="mask" x="124.61" y="14.84" width="262.01" height="477.6" maskUnits="userSpaceOnUse">
+			<path class="cls-1" d="M188,490.82h125.6l9-9V16.47H188Z"/>
+		</mask>
+		<mask id="mask-2" x="-6.63" y="14.97" width="206.61" height="477.6" maskUnits="userSpaceOnUse">
+			<path class="cls-1" d="M147.84,490.95H24l-9-9V16.6H147.84Z"/>
+		</mask>
+		<mask id="mask-3" x="289.02" y="14.84" width="206.61" height="477.6" maskUnits="userSpaceOnUse">
+			<path class="cls-1" d="M352.43,490.82H478l9-9V16.47H352.43Z"/>
+		</mask>
+		<mask id="mask-4" x="102.38" y="14.97" width="262.01" height="477.6" maskUnits="userSpaceOnUse">
+			<path class="cls-1" d="M312.25,490.95H188.4l-9-9V16.6H312.25Z"/>
+		</mask>
+		<mask id="mask-5" x="460.97" y="14.84" width="199.64" height="477.6" maskUnits="userSpaceOnUse">
+			<g class="cls-28"/>
+		</mask>
+		<mask id="mask-6" x="274.33" y="14.97" width="220.46" height="477.6" maskUnits="userSpaceOnUse">
+			<path class="cls-1" d="M484.2,490.95H360.35l-9-9V16.6H484.2Z"/>
+		</mask>
+		<mask id="mask-7" x="-62.03" y="17.18" width="448.65" height="476.3" maskUnits="userSpaceOnUse">
+			<g class="cls-28">
+				<g class="cls-2">
+					<line class="cls-3" x1="384.58" y1="483.34" x2="384.58" y2="29.27"/>
+					<line class="cls-4" x1="256.26" y1="461.88" x2="256.26" y2="29.27"/>
+					<line class="cls-5" x1="270.52" y1="483.34" x2="270.52" y2="29.27"/>
+					<line class="cls-6" x1="284.78" y1="461.88" x2="284.78" y2="29.27"/>
+					<line class="cls-7" x1="299.04" y1="483.34" x2="299.04" y2="29.27"/>
+					<line class="cls-8" x1="313.29" y1="461.88" x2="313.29" y2="29.27"/>
+					<line class="cls-9" x1="327.55" y1="483.34" x2="327.55" y2="29.27"/>
+					<line class="cls-10" x1="341.81" y1="461.88" x2="341.81" y2="29.27"/>
+					<line class="cls-11" x1="356.07" y1="483.34" x2="356.07" y2="29.27"/>
+					<line class="cls-12" x1="370.33" y1="461.88" x2="370.33" y2="29.27"/>
+					<line class="cls-3" x1="126.65" y1="483.34" x2="126.65" y2="29.27"/>
+					<line class="cls-4" x1="254.97" y1="461.88" x2="254.97" y2="29.27"/>
+					<line class="cls-5" x1="240.71" y1="483.34" x2="240.71" y2="29.27"/>
+					<line class="cls-6" x1="226.45" y1="461.88" x2="226.45" y2="29.27"/>
+					<line class="cls-7" x1="212.19" y1="483.34" x2="212.19" y2="29.27"/>
+					<line class="cls-8" x1="197.94" y1="461.88" x2="197.94" y2="29.27"/>
+					<line class="cls-9" x1="183.68" y1="483.34" x2="183.68" y2="29.27"/>
+					<line class="cls-10" x1="169.42" y1="461.88" x2="169.42" y2="29.27"/>
+					<line class="cls-11" x1="155.16" y1="483.34" x2="155.16" y2="29.27"/>
+					<line class="cls-12" x1="140.9" y1="461.88" x2="140.9" y2="29.27"/>
+				</g>
+				<g class="cls-13">
+					<line class="cls-4" x1="68.32" y1="455.49" x2="68.32" y2="22.88"/>
+					<line class="cls-5" x1="54.07" y1="476.96" x2="54.07" y2="22.88"/>
+					<line class="cls-6" x1="39.81" y1="455.49" x2="39.81" y2="22.88"/>
+					<line class="cls-7" x1="25.55" y1="476.96" x2="25.55" y2="22.88"/>
+					<line class="cls-8" x1="11.29" y1="455.49" x2="11.29" y2="22.88"/>
+					<line class="cls-9" x1="-2.97" y1="476.96" x2="-2.97" y2="22.88"/>
+					<line class="cls-3" x1="197.94" y1="476.96" x2="197.94" y2="22.88"/>
+					<line class="cls-4" x1="69.61" y1="455.49" x2="69.61" y2="22.88"/>
+					<line class="cls-5" x1="83.87" y1="476.96" x2="83.87" y2="22.88"/>
+					<line class="cls-6" x1="98.13" y1="455.49" x2="98.13" y2="22.88"/>
+					<line class="cls-7" x1="112.39" y1="476.96" x2="112.39" y2="22.88"/>
+					<line class="cls-8" x1="126.65" y1="455.49" x2="126.65" y2="22.88"/>
+					<line class="cls-9" x1="140.91" y1="476.96" x2="140.91" y2="22.88"/>
+					<line class="cls-10" x1="155.17" y1="455.49" x2="155.17" y2="22.88"/>
+					<line class="cls-11" x1="169.42" y1="476.96" x2="169.42" y2="22.88"/>
+					<line class="cls-12" x1="183.68" y1="455.49" x2="183.68" y2="22.88"/>
+				</g>
+			</g>
+		</mask>
+		<linearGradient id="Gradiente_sem_nome_61" x1="8.97" y1="256.31" x2="154.67" y2="256.31"
+		                gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#2a4b9a" stop-opacity="0"/>
+			<stop offset="0.5" stop-color="#e42320" stop-opacity="0.5"/>
+			<stop offset="1" stop-color="#2a4b9a" stop-opacity="0"/>
+		</linearGradient>
+		<mask id="mask-8" x="102.38" y="17.18" width="448.65" height="476.3" maskUnits="userSpaceOnUse">
+			<g class="cls-28">
+				<g class="cls-14">
+					<line class="cls-4" x1="420.67" y1="461.88" x2="420.67" y2="29.27"/>
+					<line class="cls-5" x1="434.93" y1="483.34" x2="434.93" y2="29.27"/>
+					<line class="cls-6" x1="449.19" y1="461.88" x2="449.19" y2="29.27"/>
+					<line class="cls-7" x1="463.44" y1="483.34" x2="463.44" y2="29.27"/>
+					<line class="cls-8" x1="477.7" y1="461.88" x2="477.7" y2="29.27"/>
+					<line class="cls-9" x1="491.96" y1="483.34" x2="491.96" y2="29.27"/>
+					<line class="cls-3" x1="291.06" y1="483.34" x2="291.06" y2="29.27"/>
+					<line class="cls-4" x1="419.38" y1="461.88" x2="419.38" y2="29.27"/>
+					<line class="cls-5" x1="405.12" y1="483.34" x2="405.12" y2="29.27"/>
+					<line class="cls-6" x1="390.86" y1="461.88" x2="390.86" y2="29.27"/>
+					<line class="cls-7" x1="376.6" y1="483.34" x2="376.6" y2="29.27"/>
+					<line class="cls-8" x1="362.35" y1="461.88" x2="362.35" y2="29.27"/>
+					<line class="cls-9" x1="348.09" y1="483.34" x2="348.09" y2="29.27"/>
+					<line class="cls-10" x1="333.83" y1="461.88" x2="333.83" y2="29.27"/>
+					<line class="cls-11" x1="319.57" y1="483.34" x2="319.57" y2="29.27"/>
+					<line class="cls-12" x1="305.31" y1="461.88" x2="305.31" y2="29.27"/>
+				</g>
+				<g class="cls-15">
+					<line class="cls-3" x1="104.41" y1="476.96" x2="104.41" y2="22.88"/>
+					<line class="cls-4" x1="232.73" y1="455.49" x2="232.73" y2="22.88"/>
+					<line class="cls-5" x1="218.48" y1="476.96" x2="218.48" y2="22.88"/>
+					<line class="cls-6" x1="204.22" y1="455.49" x2="204.22" y2="22.88"/>
+					<line class="cls-7" x1="189.96" y1="476.96" x2="189.96" y2="22.88"/>
+					<line class="cls-8" x1="175.7" y1="455.49" x2="175.7" y2="22.88"/>
+					<line class="cls-9" x1="161.44" y1="476.96" x2="161.44" y2="22.88"/>
+					<line class="cls-10" x1="147.18" y1="455.49" x2="147.18" y2="22.88"/>
+					<line class="cls-11" x1="132.93" y1="476.96" x2="132.93" y2="22.88"/>
+					<line class="cls-12" x1="118.67" y1="455.49" x2="118.67" y2="22.88"/>
+					<line class="cls-3" x1="362.35" y1="476.96" x2="362.35" y2="22.88"/>
+					<line class="cls-4" x1="234.02" y1="455.49" x2="234.02" y2="22.88"/>
+					<line class="cls-5" x1="248.28" y1="476.96" x2="248.28" y2="22.88"/>
+					<line class="cls-6" x1="262.54" y1="455.49" x2="262.54" y2="22.88"/>
+					<line class="cls-7" x1="276.8" y1="476.96" x2="276.8" y2="22.88"/>
+					<line class="cls-8" x1="291.06" y1="455.49" x2="291.06" y2="22.88"/>
+					<line class="cls-9" x1="305.32" y1="476.96" x2="305.32" y2="22.88"/>
+					<line class="cls-10" x1="319.58" y1="455.49" x2="319.58" y2="22.88"/>
+					<line class="cls-11" x1="333.83" y1="476.96" x2="333.83" y2="22.88"/>
+					<line class="cls-12" x1="348.09" y1="455.49" x2="348.09" y2="22.88"/>
+				</g>
+			</g>
+		</mask>
+		<linearGradient id="Gradiente_sem_nome_61-2" x1="173.38" y1="256.31" x2="319.08" y2="256.31"
+		                xlink:href="#Gradiente_sem_nome_61"/>
+		<mask id="mask-9" x="274.33" y="17.18" width="448.65" height="476.3" maskUnits="userSpaceOnUse">
+			<g class="cls-28">
+				<g class="cls-16">
+					<line class="cls-3" x1="463.01" y1="483.34" x2="463.01" y2="29.27"/>
+					<line class="cls-11" x1="491.52" y1="483.34" x2="491.52" y2="29.27"/>
+					<line class="cls-12" x1="477.26" y1="461.88" x2="477.26" y2="29.27"/>
+				</g>
+				<g class="cls-17">
+					<line class="cls-3" x1="276.36" y1="476.96" x2="276.36" y2="22.88"/>
+					<line class="cls-4" x1="404.68" y1="455.49" x2="404.68" y2="22.88"/>
+					<line class="cls-5" x1="390.43" y1="476.96" x2="390.43" y2="22.88"/>
+					<line class="cls-6" x1="376.17" y1="455.49" x2="376.17" y2="22.88"/>
+					<line class="cls-7" x1="361.91" y1="476.96" x2="361.91" y2="22.88"/>
+					<line class="cls-8" x1="347.65" y1="455.49" x2="347.65" y2="22.88"/>
+					<line class="cls-9" x1="333.39" y1="476.96" x2="333.39" y2="22.88"/>
+					<line class="cls-10" x1="319.13" y1="455.49" x2="319.13" y2="22.88"/>
+					<line class="cls-11" x1="304.88" y1="476.96" x2="304.88" y2="22.88"/>
+					<line class="cls-12" x1="290.62" y1="455.49" x2="290.62" y2="22.88"/>
+					<line class="cls-4" x1="405.97" y1="455.49" x2="405.97" y2="22.88"/>
+					<line class="cls-5" x1="420.23" y1="476.96" x2="420.23" y2="22.88"/>
+					<line class="cls-6" x1="434.49" y1="455.49" x2="434.49" y2="22.88"/>
+					<line class="cls-7" x1="448.75" y1="476.96" x2="448.75" y2="22.88"/>
+					<line class="cls-8" x1="463.01" y1="455.49" x2="463.01" y2="22.88"/>
+					<line class="cls-9" x1="477.27" y1="476.96" x2="477.27" y2="22.88"/>
+					<line class="cls-10" x1="491.53" y1="455.49" x2="491.53" y2="22.88"/>
+				</g>
+			</g>
+		</mask>
+		<linearGradient id="Gradiente_sem_nome_61-3" x1="345.33" y1="256.31" x2="491.03" y2="256.31"
+		                xlink:href="#Gradiente_sem_nome_61"/>
+	</defs>
+	<title>tipoDeVidroEspc0</title>
+	<g id="Layer_1" data-name="Layer 1">
+		<path class="cls-18" d="M153.07,487H19.57l-9-9V23h142.5Z"/>
+		<rect class="cls-18" x="176.98" y="23.02" width="142.5" height="463.96"/>
+		<path class="cls-19"
+		      d="M14.14,452.2,11.64,27.5l25.51,3.26,3.47,338c.42,40.71,37.57,96.15,80.06,113.78H44.61A30.48,30.48,0,0,1,14.14,452.2Z"/>
+		<path class="cls-19"
+		      d="M179.65,482.44,177,27.5l25.51,3.26,3.47,338c.42,40.71,37.57,96.15,80.06,113.78H179.71a.06.06,0,0,1-.06-.1Z"/>
+		<rect class="cls-20" x="153.07" y="23.02" width="23.9" height="463.96"/>
+		<path class="cls-18" d="M346.93,487h133.5l9-9V23H346.93Z"/>
+		<path class="cls-19"
+		      d="M349.6,482.44,346.93,27.5l25.51,3.26,3.47,338c.42,40.71,37.57,96.15,80.06,113.78H349.66a.06.06,0,0,1-.06-.1Z"/>
+		<rect class="cls-20" x="323.03" y="23.02" width="23.9" height="463.96"/>
+	</g>
+	<g style="opacity: 0" id="tratmentoTermico">
+		<g class="cls-21">
+			<g id="tratamentoTermicoLayer">
+				<path class="cls-22" d="M154.67,493.48H18l-9-9V19.13H154.67Z"/>
+			</g>
+		</g>
+		<g class="cls-23">
+			<g id="tratamentoTermicoLayer-2" data-name="tratamentoTermicoLayer">
+				<path class="cls-24" d="M319.08,493.48H182.38l-9-9V19.13H319.08Z"/>
+			</g>
+		</g>
+		<g class="cls-25">
+			<g id="tratamentoTermicoLayer-3" data-name="tratamentoTermicoLayer">
+				<path class="cls-26" d="M491,493.48H354.33l-9-9V19.13H491Z"/>
+			</g>
+		</g>
+	</g>
+	<g style="opacity: 0" id="numeros">
+		<text class="cls-27" transform="translate(55.47 282.02)">1</text>
+		<text class="cls-27" transform="translate(216.51 282.02)">2</text>
+		<text class="cls-27" transform="translate(391.21 282.02)">3</text>
+	</g>
+</svg>

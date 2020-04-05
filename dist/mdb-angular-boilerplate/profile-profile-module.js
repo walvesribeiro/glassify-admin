@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mdb-card>\n  <mdb-card-body>\n    <h3 class=\"h2-responsive mb-4\">\n      <strong>Edit profile</strong>\n    </h3>\n\n    <!--Body-->\n    <form [formGroup]=\"updateProfileForm\">\n      <h5 class=\"h5-responsive\">Display name</h5>\n      <div class=\"md-form\">\n        <i class=\"fa fa-user prefix\"></i>\n        <input type=\"text\" id=\"form1\" class=\"form-control\" mdbInput formControlName=\"displayName\" />\n        <label for=\"form1\">Display name</label>\n      </div>\n\n      <h5 class=\"h5-responsive\">Photo Url</h5>\n      <div class=\"md-form\">\n        <i class=\"fa fa-user prefix\"></i>\n        <input type=\"text\" id=\"form2\" class=\"form-control\" mdbInput formControlName=\"photoUrl\" />\n        <label for=\"form2\">Photo Url</label>\n      </div>\n\n      <div class=\"text-right\">\n        <button type=\"button\" mdbBtn color=\"primary\" (click)=\"onProfileUpdate()\">Update profile</button>\n      </div>\n    </form>\n  </mdb-card-body>\n</mdb-card>\n"
+module.exports = "<mdb-card>\r\n  <mdb-card-body>\r\n    <h3 class=\"h2-responsive mb-4\">\r\n      <strong>Edit profile</strong>\r\n    </h3>\r\n\r\n    <!--Body-->\r\n    <form [formGroup]=\"updateProfileForm\">\r\n      <h5 class=\"h5-responsive\">Display name</h5>\r\n      <div class=\"md-form\">\r\n        <i class=\"fa fa-user prefix\"></i>\r\n        <input type=\"text\" id=\"form1\" class=\"form-control\" mdbInput formControlName=\"displayName\" />\r\n        <label for=\"form1\">Display name</label>\r\n      </div>\r\n\r\n      <h5 class=\"h5-responsive\">Photo Url</h5>\r\n      <div class=\"md-form\">\r\n        <i class=\"fa fa-user prefix\"></i>\r\n        <input type=\"text\" id=\"form2\" class=\"form-control\" mdbInput formControlName=\"photoUrl\" />\r\n        <label for=\"form2\">Photo Url</label>\r\n      </div>\r\n\r\n      <div class=\"text-right\">\r\n        <button type=\"button\" mdbBtn color=\"primary\" (click)=\"onProfileUpdate()\">Update profile</button>\r\n      </div>\r\n    </form>\r\n  </mdb-card-body>\r\n</mdb-card>\r\n"
 
 /***/ }),
 
@@ -18,7 +18,7 @@ module.exports = "<mdb-card>\n  <mdb-card-body>\n    <h3 class=\"h2-responsive m
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mdb-card>\n  <mdb-card-body>\n    <div class=\"text-center\">\n      <div class=\"avatar\" style=\"margin-top: -60px\">\n          <img *ngIf=\"user.photoUrl\" src=\"{{ user.photoUrl }}\" height=\"96\" width=\"96\" class=\"rounded-circle z-depth-0\" alt=\"avatar image\">\n      </div>\n\n      <h3 *ngIf=\"user.displayName\" class=\"mt-4\">{{ user.displayName }}</h3>\n      <h3 *ngIf=\"!user.displayName\" class=\"mt-4\">Anonymous user</h3>\n\n      <a mdbBtn class=\"mt-3\" color=\"primary\" (click)=\"onLogout()\">\n        <i class=\"fa fa-sign-out\"></i>\n        Logout\n      </a>\n    </div>\n  </mdb-card-body>\n</mdb-card>\n"
+module.exports = "<mdb-card>\r\n  <mdb-card-body>\r\n    <div class=\"text-center\">\r\n      <div class=\"avatar\" style=\"margin-top: -60px\">\r\n          <img *ngIf=\"user.photoUrl\" src=\"{{ user.photoUrl }}\" height=\"96\" width=\"96\" class=\"rounded-circle z-depth-0\" alt=\"avatar image\">\r\n      </div>\r\n\r\n      <h3 *ngIf=\"user.displayName\" class=\"mt-4\">{{ user.displayName }}</h3>\r\n      <h3 *ngIf=\"!user.displayName\" class=\"mt-4\">Anonymous user</h3>\r\n\r\n      <a mdbBtn class=\"mt-3\" color=\"primary\" (click)=\"onLogout()\">\r\n        <i class=\"fa fa-sign-out\"></i>\r\n        Logout\r\n      </a>\r\n    </div>\r\n  </mdb-card-body>\r\n</mdb-card>\r\n"
 
 /***/ }),
 
@@ -29,7 +29,7 @@ module.exports = "<mdb-card>\n  <mdb-card-body>\n    <div class=\"text-center\">
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>Profile</p>\n\n<!-- <div class=\"white px-4 section-header\">\n  <h3>Profile</h3>\n  <p class=\"grey-text pt-3\">Change your personal information</p>\n</div>\n\n<div class=\"container py-5\">\n  <div class=\"row mx-auto py-5\">\n    <div class=\"col-md-4 mt-3\">\n      <app-profile-user [user]=\"user$ | async\" (logout)=\"logoutUser($event)\"></app-profile-user>\n    </div>\n    <div class=\"col-md-8 mt-3\">\n        <app-main-profile [user]=\"user$ | async\" (profileUpdate)=\"updateProfile($event)\"></app-main-profile>\n    </div>\n  </div>\n</div> -->\n"
+module.exports = "<p>Profile</p>\r\n\r\n<!-- <div class=\"white px-4 section-header\">\r\n  <h3>Profile</h3>\r\n  <p class=\"grey-text pt-3\">Change your personal information</p>\r\n</div>\r\n\r\n<div class=\"container py-5\">\r\n  <div class=\"row mx-auto py-5\">\r\n    <div class=\"col-md-4 mt-3\">\r\n      <app-profile-user [user]=\"user$ | async\" (logout)=\"logoutUser($event)\"></app-profile-user>\r\n    </div>\r\n    <div class=\"col-md-8 mt-3\">\r\n        <app-main-profile [user]=\"user$ | async\" (profileUpdate)=\"updateProfile($event)\"></app-main-profile>\r\n    </div>\r\n  </div>\r\n</div> -->\r\n"
 
 /***/ }),
 

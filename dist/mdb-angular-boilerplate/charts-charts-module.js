@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"display: block\">\n  <canvas mdbChart [chartType]=\"chartType\" [datasets]=\"dataset\" [labels]=\"labels\" [colors]=\"chartColors\" [options]=\"chartOptions\"\n    [legend]=\"true\">\n  </canvas>\n</div>\n"
+module.exports = "<div style=\"display: block\">\r\n  <canvas mdbChart [chartType]=\"chartType\" [datasets]=\"dataset\" [labels]=\"labels\" [colors]=\"chartColors\" [options]=\"chartOptions\"\r\n    [legend]=\"true\">\r\n  </canvas>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -18,7 +18,7 @@ module.exports = "<div style=\"display: block\">\n  <canvas mdbChart [chartType]
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"display: block\">\n  <canvas mdbChart [chartType]=\"chartType\" [datasets]=\"dataset\" [labels]=\"labels\" [colors]=\"chartColors\" [options]=\"chartOptions\"\n    [legend]=\"true\">\n  </canvas>\n</div>\n"
+module.exports = "<div style=\"display: block\">\r\n  <canvas mdbChart [chartType]=\"chartType\" [datasets]=\"dataset\" [labels]=\"labels\" [colors]=\"chartColors\" [options]=\"chartOptions\"\r\n    [legend]=\"true\">\r\n  </canvas>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -29,7 +29,7 @@ module.exports = "<div style=\"display: block\">\n  <canvas mdbChart [chartType]
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"display: block\">\n  <canvas mdbChart [chartType]=\"chartType\" height=\"500px\" [datasets]=\"dataset\" [labels]=\"labels\" [colors]=\"chartColors\"\n    [options]=\"chartOptions\" [legend]=\"true\">\n  </canvas>\n</div>\n"
+module.exports = "<div style=\"display: block\">\r\n  <canvas mdbChart [chartType]=\"chartType\" height=\"500px\" [datasets]=\"dataset\" [labels]=\"labels\" [colors]=\"chartColors\"\r\n    [options]=\"chartOptions\" [legend]=\"true\">\r\n  </canvas>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -40,7 +40,7 @@ module.exports = "<div style=\"display: block\">\n  <canvas mdbChart [chartType]
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"display: block\">\n  <canvas mdbChart [chartType]=\"chartType\" [datasets]=\"dataset\" [labels]=\"labels\" [colors]=\"chartColors\"\n    [options]=\"chartOptions\" [legend]=\"true\">\n  </canvas>\n</div>\n"
+module.exports = "<div style=\"display: block\">\r\n  <canvas mdbChart [chartType]=\"chartType\" [datasets]=\"dataset\" [labels]=\"labels\" [colors]=\"chartColors\"\r\n    [options]=\"chartOptions\" [legend]=\"true\">\r\n  </canvas>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -51,7 +51,7 @@ module.exports = "<div style=\"display: block\">\n  <canvas mdbChart [chartType]
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"white px-4 section-header\">\n  <h3>Charts</h3>\n  <p class=\"grey-text pt-3\">Visualisation of data downloaded from an external API</p>\n</div>\n\n<div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 300px\">\n  <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n    <span class=\"sr-only\">Loading...</span>\n  </div>\n</div>\n\n<div *ngIf=\"!(isLoading$ | async)\" class=\"charts-container p-5\">\n\n  <div class=\"row mb-3\">\n    <div class=\"col-md-12\">\n      <mdb-card>\n        <mdb-card-body>\n          <div class=\"pl-4\">\n            <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"getExchangeRates('USD')\">USD</button>\n            <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"getExchangeRates('PLN')\">PLN</button>\n            <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"getExchangeRates('GBP')\">GBP</button>\n            <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"getExchangeRates('JPY')\">JPY</button>\n            <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"getExchangeRates('RUB')\">RUB</button>\n          </div>\n          <app-line-chart [dataset]=\"dataset\" [labels]=\"labels\"></app-line-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n  </div>\n\n  <div class=\"row mb-3\">\n    <div class=\"col-md-6\">\n      <table class=\"white text-center z-depth-1\" mdbTable>\n        <thead class=\"primary-color text-white\">\n          <tr>\n            <th>Value</th>\n            <th>Label</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr mdbTableCol *ngFor=\"let value of barChartDataset[0].data; let i = index\">\n            <th scope=\"row\">{{ value }}</th>\n            <td>{{ barChartLabels[i] }}</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n\n    <div class=\"col-md-6\">\n      <mdb-card>\n        <mdb-card-body>\n          <app-pie-chart [dataset]=\"barChartDataset\" [labels]=\"barChartLabels\"></app-pie-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n  </div>\n\n  <div class=\"row mb-3\">\n    <div class=\"col-md-6 mb-3\">\n      <mdb-card>\n        <mdb-card-body>\n          <app-bar-chart [dataset]=\"barChartDataset\" [labels]=\"barChartLabels\"></app-bar-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n\n    <div class=\"col-md-6 mb-3\">\n      <mdb-card>\n        <mdb-card-body>\n          <app-doughnut-chart [dataset]=\"barChartDataset\" [labels]=\"barChartLabels\"></app-doughnut-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n  </div>\n\n</div>\n"
+module.exports = "<div class=\"white px-4 section-header\">\r\n  <h3>Charts</h3>\r\n  <p class=\"grey-text pt-3\">Visualisation of data downloaded from an external API</p>\r\n</div>\r\n\r\n<div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 300px\">\r\n  <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\r\n    <span class=\"sr-only\">Loading...</span>\r\n  </div>\r\n</div>\r\n\r\n<div *ngIf=\"!(isLoading$ | async)\" class=\"charts-container p-5\">\r\n\r\n  <div class=\"row mb-3\">\r\n    <div class=\"col-md-12\">\r\n      <mdb-card>\r\n        <mdb-card-body>\r\n          <div class=\"pl-4\">\r\n            <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"getExchangeRates('USD')\">USD</button>\r\n            <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"getExchangeRates('PLN')\">PLN</button>\r\n            <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"getExchangeRates('GBP')\">GBP</button>\r\n            <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"getExchangeRates('JPY')\">JPY</button>\r\n            <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"getExchangeRates('RUB')\">RUB</button>\r\n          </div>\r\n          <app-line-chart [dataset]=\"dataset\" [labels]=\"labels\"></app-line-chart>\r\n        </mdb-card-body>\r\n      </mdb-card>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"row mb-3\">\r\n    <div class=\"col-md-6\">\r\n      <table class=\"white text-center z-depth-1\" mdbTable>\r\n        <thead class=\"primary-color text-white\">\r\n          <tr>\r\n            <th>Value</th>\r\n            <th>Label</th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr mdbTableCol *ngFor=\"let value of barChartDataset[0].data; let i = index\">\r\n            <th scope=\"row\">{{ value }}</th>\r\n            <td>{{ barChartLabels[i] }}</td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n    </div>\r\n\r\n    <div class=\"col-md-6\">\r\n      <mdb-card>\r\n        <mdb-card-body>\r\n          <app-pie-chart [dataset]=\"barChartDataset\" [labels]=\"barChartLabels\"></app-pie-chart>\r\n        </mdb-card-body>\r\n      </mdb-card>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"row mb-3\">\r\n    <div class=\"col-md-6 mb-3\">\r\n      <mdb-card>\r\n        <mdb-card-body>\r\n          <app-bar-chart [dataset]=\"barChartDataset\" [labels]=\"barChartLabels\"></app-bar-chart>\r\n        </mdb-card-body>\r\n      </mdb-card>\r\n    </div>\r\n\r\n    <div class=\"col-md-6 mb-3\">\r\n      <mdb-card>\r\n        <mdb-card-body>\r\n          <app-doughnut-chart [dataset]=\"barChartDataset\" [labels]=\"barChartLabels\"></app-doughnut-chart>\r\n        </mdb-card-body>\r\n      </mdb-card>\r\n    </div>\r\n  </div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 

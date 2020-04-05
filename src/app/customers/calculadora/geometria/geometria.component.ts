@@ -23,8 +23,6 @@ export class GeometriaComponent implements OnInit, OnChanges {
   espessuraVidro: any;
   pressaoMinima = 600;
   InputC: boolean;
-  tipoVidroAplicado: any;
-  tipoTratamentoTermico: string;
   baseDiv: string;
   baseID: any;
   PV: any;
@@ -37,7 +35,7 @@ export class GeometriaComponent implements OnInit, OnChanges {
   elementTemperado: number;
   calcAngulo: number;
   angulo: number;
-  tipoVidro: any;
+  
   pressaoExterno1: number;
   pressaoExterno2: number;
   pressaoInterno1: number;
@@ -77,6 +75,8 @@ export class GeometriaComponent implements OnInit, OnChanges {
   espessuraEquivalente: number;
   maiorValor: number;
   ArrayResultados: any = [];
+  ApscFlecha: number;
+  laminadoValue: number;
 
   constructor() { }
 
@@ -84,7 +84,10 @@ export class GeometriaComponent implements OnInit, OnChanges {
     this.buildForm();
     this.buildCalculo();
     this.geometriaForm.valueChanges.subscribe(
-      (x: any) => {this.calcular(this.geometriaForm.value); console.log(x);}
+      (x: any) => {
+        this.ArrayResultados = [];
+        this.calcular(this.geometriaForm.value); 
+        console.log(x);}
     );
 
   }
@@ -181,11 +184,15 @@ export class GeometriaComponent implements OnInit, OnChanges {
     console.log(`Elemento Flecha: ${element}`);
     console.log(`alpha Flecha atuante: ${this.alpha}`);
     console.log(`Pressao Flecha atuante: ${this.pressaoCalculo}`);
-    this.flechaAtuante = this.alpha * (this.pressaoCalculo / Number(1.5)) * (Math.pow(this.maiorValor, 4) / Math.pow( element, 3));
-    console.log(this.alpha, this.pressaoCalculo / Number(1.5), Math.pow(this.menorValor, 4), Math.pow(element, 3), element , this.menorValor );
+    if (this.TipoVidroAplicado === 'laminado' ) {
+      this.flechaAtuante = this.alpha * (this.pressaoCalculo / Number(1.5)) * (Math.pow(Number(this.ApscFlecha), 4) / Math.pow( element / 1.30, 3));
+    } else {
+      this.flechaAtuante = this.alpha * (this.pressaoCalculo / Number(1.5)) * (Math.pow(Number(this.ApscFlecha), 4) / Math.pow( element, 3));
+    }
+    console.log(this.alpha, this.pressaoCalculo / Number(1.5), this.ApscFlecha,  Math.pow(Number(this.ApscFlecha), 4), Math.pow(element, 3), element, (Math.pow(Number(this.ApscFlecha), 4) / Math.pow( element, 3)));
     console.log(`Flecha Atuante: ${this.flechaAtuante}`);
     this.flechaMinina = (this.Apoio === '4lados') ?
-      Math.min( this.menorValor / Number(60 * 1000) * Math.pow(10, 6), Number(30) ) :
+      Math.min( this.ApscFlecha / Number(60 * 1000) * Math.pow(10, 6), Number(30) ) :
       (this.Apoio === '3lados') ?
         Math.min( this.menorValor / Number(100 * 1000), Number(50)) * Math.pow(10, 6) :
           Math.min( this.menorValor / Number(150 * 1000), Number(50)) * Math.pow(10, 6) ;
@@ -208,45 +215,41 @@ export class GeometriaComponent implements OnInit, OnChanges {
   ladosLivres(tipoApoio: string, ladoApoio: string) {
     console.log(tipoApoio, 'Tipo Apoio', ladoApoio, 'Lado Apoio', '****************************')
     switch (tipoApoio) {
-        case '2lados':
-            if (ladoApoio === 'altura') {
-              this.aspectRatioCalcEspessura = this.altura / this.largura;
-              this.deflexao = Number(this.altura  / this.largura).toFixed(2);
-              this.alpha = 2.11430;
-            } else {
-              this.aspectRatioCalcEspessura = this.largura / this.altura;
-              this.deflexao = Number(this.largura / this.altura ).toFixed(2);
-              this.alpha = 2.11430;
-            }
-          break;
-        case '3lados':
-            if (ladoApoio === 'MenorLivre') {
-              this.aspectRatioCalcEspessura = this.largura / this.altura;
-              this.deflexao = Number(this.largura / this.altura ).toFixed(2);
-              this.alpha = this.search(`${this.deflexao}`, this.array3lados);
-              [this.alpha].filter( (x: any) => this.alpha = Number(x.value));
-            } else {
-              this.aspectRatioCalcEspessura = this.altura / this.largura;
-              this.deflexao = Number(this.altura / this.largura).toFixed(2);
-              this.alpha = this.search(`${this.deflexao}`, this.array3lados);
-              [this.alpha].filter( (x: any) => this.alpha = Number(x.value));
-            }
-          break;
-        case '4lados': //4lados apoiados
-                this.aspectRatioCalcEspessura = this.maiorValor / this.menorValor;
-                this.deflexao = Number(this.menorValor / this.maiorValor).toFixed(2);
-                this.alpha = this.search(`${this.deflexao}`, this.array4lados);
-                console.log(this.alpha, '************************************apha depois do filtro');
-                [this.alpha].filter( (x: any) => this.alpha = Number(x.value));
-            break;
-        default: //4lados apoiados
-              this.aspectRatioCalcEspessura = this.maiorValor / this.menorValor;
-              this.deflexao = Number(this.menorValor / this.maiorValor).toFixed(2);
-              this.alpha = this.search(`${this.deflexao}`, this.array4lados);
-              console.log(this.alpha, '************************************apha depois do filtro');
-
-              [this.alpha].filter( (x: any) => this.alpha = Number(x.value));
-            break;
+      case '2lados':
+          if (ladoApoio === 'altura') {
+            this.aspectRatioCalcEspessura = this.altura / this.largura;
+            this.deflexao = Number(this.altura  / this.largura).toFixed(2);
+            this.alpha = 2.11430;
+            this.ApscFlecha = this.Largura;
+          } else {
+            this.aspectRatioCalcEspessura = this.largura / this.altura;
+            this.deflexao = Number(this.largura / this.altura ).toFixed(2);
+            this.alpha = 2.11430;
+            this.ApscFlecha = this.Altura;
+          }
+        break;
+      case '3lados':
+          if (ladoApoio === 'MenorLivre') {
+            this.ApscFlecha = this.Largura;
+            this.aspectRatioCalcEspessura = this.largura / this.altura;
+            this.deflexao = Number(this.largura / this.altura ).toFixed(2);
+            this.alpha = this.search(`${this.deflexao}`, this.array3lados);
+            [this.alpha].filter( (x: any) => this.alpha = Number(x.value));
+          } else {
+            this.ApscFlecha = this.Altura;
+            this.aspectRatioCalcEspessura = this.altura / this.largura;
+            this.deflexao = Number(this.altura / this.largura).toFixed(2);
+            this.alpha = this.search(`${this.deflexao}`, this.array3lados);
+            [this.alpha].filter( (x: any) => this.alpha = Number(x.value));
+          }
+        break;
+      default:
+          this.aspectRatioCalcEspessura = this.maiorValor / this.menorValor;
+          this.deflexao = Number(this.menorValor / this.maiorValor).toFixed(2);
+          this.alpha = this.search(`${this.deflexao}`, this.array4lados);
+          this.ApscFlecha = this.menorValor;
+          console.log(this.alpha, '************************************apha depois do filtro');
+          [this.alpha].filter( (x: any) => this.alpha = Number(x.value));
     }
     console.log(this.alpha, "************************alpha*************")
   }
@@ -297,7 +300,6 @@ export class GeometriaComponent implements OnInit, OnChanges {
   }
 
   forma(geo: any) {
-    
     const type: any = {
         'quadrado': () => this.Altura * this.Largura, // ok
         'triescaleno': () => Number(this.Altura) * Number(2 / 3), // ok
@@ -317,11 +319,11 @@ export class GeometriaComponent implements OnInit, OnChanges {
 
 
   baseEspessuraVidro() {
-    this.tipoVidroAplicado = this.TipoVidroAplicado;
-    switch (this.tipoVidroAplicado) {
+    console.log(this.getTipoTratamento)
+    switch (this.TipoVidroAplicado) {
       case 'monolitico':
         console.log('chamou a função monolitico');
-        if (this.tipoTratamentoTermico === 'comum') {
+        if (this.getTipoTratamento === 'comum') {
             console.log('chamou a função monolitico com vidro comum');
             this.espessuraVidro = [3, 4, 5, 6, 8, 10, 12, 15, 19];
             // this.espessuraVidro = [8];
@@ -362,7 +364,7 @@ export class GeometriaComponent implements OnInit, OnChanges {
               this.calculo(laminado);
             });
         } else {
-            if (this.tipoTratamentoTermico === 'comum') {
+            if (this.getTipoTratamento === 'comum') {
                 console.log('chamou a função laminado com vidro comum');
                 this.espessuraVidro = [{a: 3, b: 3},
                   {a: 3, b: 4},
@@ -390,12 +392,12 @@ export class GeometriaComponent implements OnInit, OnChanges {
             }
             this.espessuraVidro.forEach((element: any) => {
                 console.log(element);
-                const laminado = Number(element.a) + Number(element.b);
-                console.log(`A espessura do vidro é ${Number(element.a)} + ${Number(element.b)} => ${laminado} `);
+                this.laminadoValue = Number(element.a) + Number(element.b);
+                console.log(`A espessura do vidro é ${Number(element.a)} + ${Number(element.b)} => ${this.laminadoValue} `);
                 this.baseDiv = `A espessura do vidro é ${Number(element.a)} + ${Number(element.b)}`;
                 this.baseID = `${Number(element.a)}-${Number(element.b)}`;
                 console.log(`ID da Div => ****${this.baseID}****`);
-                this.calculo(laminado);
+                this.calculo(this.laminadoValue);
             });
         }
       break;
@@ -407,7 +409,7 @@ export class GeometriaComponent implements OnInit, OnChanges {
   }
   base(tipo: any) {
       if (tipo === 'monolitico') {
-          if (this.tipoTratamentoTermico === 'comum') {
+          if (this.getTipoTratamento === 'comum') {
               console.log('Insulado-1 monolitico com vidro comum');
               this.espessuraVidro = [3, 4, 5, 6, 8, 10, 12, 15, 19];
           } else {
@@ -423,7 +425,7 @@ export class GeometriaComponent implements OnInit, OnChanges {
               this.base2(this.vidro2);
           });
       } else {
-          if (this.tipoTratamentoTermico === 'comum') {
+          if (this.getTipoTratamento === 'comum') {
               console.log('Insulado-1 laminado com vidro comum');
               this.espessuraVidro = [{a: 3, b: 3},
                   {a: 3, b: 4},
@@ -451,12 +453,12 @@ export class GeometriaComponent implements OnInit, OnChanges {
           }
           this.espessuraVidro.forEach((element: any) => {
               console.log(element);
-              const laminado = Number(element.a) + Number(element.b);
-              console.log(`A espessura do vidro 1 é ${Number(element.a)} + ${Number(element.b)} => ${laminado} `);
+              this.laminadoValue = Number(element.a) + Number(element.b);
+              console.log(`A espessura do vidro 1 é ${Number(element.a)} + ${Number(element.b)} => ${this.laminadoValue} `);
               this.insulado1Log = eval(`${Number(element.a)} + ${Number(element.b)}`);
               this.insulado1LogID = eval(`${Number(element.a)}-${Number(element.b)}`);
-              this.numeroP = laminado;
-              this.be1 = Number(laminado) / (1.30 * 0.9);
+              this.numeroP = this.laminadoValue;
+              this.be1 = Number(this.laminadoValue) / (1.30 * 0.9);
               this.base2(this.vidro2);
           });
       }
@@ -464,7 +466,7 @@ export class GeometriaComponent implements OnInit, OnChanges {
 
   base2 = (tipo: string) => {
       if (tipo === 'monolitico') {
-          if (this.tipoTratamentoTermico === 'comum') {
+          if (this.getTipoTratamento === 'comum') {
               console.log('Insulado-2 monolitico com vidro comum');
               this.espessuraVidro = [3, 4, 5, 6, 8, 10, 12, 15, 19];
           } else {
@@ -481,7 +483,7 @@ export class GeometriaComponent implements OnInit, OnChanges {
               this.resultado(this.be1, this.be2);
           });
       } else {
-          if (this.tipoTratamentoTermico == 'comum') {
+          if (this.getTipoTratamento === 'comum') {
               console.log('Insulado-2 laminado com vidro comum');
               this.espessuraVidro = [{a: 3, b: 3},
                   {a: 3, b: 4},
@@ -509,19 +511,19 @@ export class GeometriaComponent implements OnInit, OnChanges {
           }
           this.espessuraVidro.forEach((element: any) => {
               console.log(element);
-              const laminado = Number(element.a) + Number(element.b);
-              console.log(`A espessura do vidro 2 é ${Number(element.a)} + ${Number(element.b)} => ${laminado} `);
+              this.laminadoValue = Number(element.a) + Number(element.b);
+              console.log(`A espessura do vidro 2 é ${Number(element.a)} + ${Number(element.b)} => ${this.laminadoValue} `);
               this.baseID = `${this.insulado1LogID}-${Number(element.a)}-${Number(element.b)}`;
               console.log(`ID da Div => ****${this.baseID}****`);
-              this.numeroP2 = laminado;
-              this.be2 = Number(laminado) / (1.30 * 0.9);
+              this.numeroP2 = this.laminadoValue;
+              this.be2 = Number(this.laminadoValue) / (1.30 * 0.9);
               this.insulado2Log = `${element.a} + ${element.b}`;
               this.resultado(this.be1, this.be2);
           });
       }
   }
   coeficienteTipoVidro() {
-    switch (this.tipoVidro) {
+    switch (this.TipoVidroAplicado) {
       case 'float':
           this.fatorE3 = 1.00;
           this.omega = 2;
@@ -571,109 +573,112 @@ export class GeometriaComponent implements OnInit, OnChanges {
 
     }
 
-            calculo(element: any) {
-              this.PV = this.pressao;
-              this.coefTipoVidro = this.coeficienteTipoVidro();
-              this.fatorLaminado = (this.subtipoVidro == 'laminado-triplo') ?  1.50 : 1.30;
-              switch (this.tipoVidroAplicado) {
-               case 'laminado':
-                  console.log(`element Inicial=>${element}`);
-                  if (this.tipoTratamentoTermico == 'temperado') {
-                      this.elementNovoTemperado = (element / this.fatorLaminado) / (this.fatorE3 * Number('0.90')) / 0.77;
-                      this.elementNovo = (element / this.fatorLaminado) / (this.fatorE3 * Number('0.90'));
-                      this.pressaoP(this.elementNovo);
-                      this.calcPressoes(this.elementNovoTemperado);
-                      this.resultado(this.elementNovoTemperado, this.elementNovo);
-                  } else {
-                      this.elementNovo = (element / this.fatorLaminado) / (this.fatorE3 * Number('0.90'));
-                      console.log(`Novo element=>${this.elementNovo}`);
-                      this.pressaoP(element);
-                      this.calcPressoes(this.elementNovo);
-                      this.resultado(this.elementNovo, this.elementNovo);
-                      }
-                  break;
-              case 'monolitico':
-                  if (this.tipoTratamentoTermico == 'temperado') {
-                      this.elementTemperado = element / this.fatorE3 / 0.77;
-                      element = element / this.fatorE3;
-                      this.pressaoP(this.elementTemperado);
-                      this.calcPressoes(this.elementTemperado);
-                      this.resultado(this.elementTemperado, element);
-                  } else {
-                      element = element / this.fatorE3;
-                      this.pressaoP(element);
-                      this.calcPressoes(element);
-                      this.resultado(element, element);
-                  }
-                  break;
-              case 'insulado':
-              if (this.tipoTratamentoTermico === 'temperado') {
-                      this.elementNovoTemperado = (element) / 1.44 / 0.77;
-                      this.elementNovo = (element) / 1.44;
-                      this.calcPressoes(this.elementNovo);
-                      this.resultado(this.elementNovoTemperado, this.elementNovo);
-                  } else {
-                      this.elementNovo = (element) / 1.44;
-                      this.calcPressoes(this.elementNovo);
-                      this.resultado(this.elementNovo, this.elementNovo);
-                  }
-
-                  break;
-              default:
-              break;
-              }
-          }
-
-          calcPressoes(element: any) {
-            this.calcAngulo = 0;
-            this.angulo = Number(this.getInclinacao);
-            this.tipoVidro = this.TipoVidroAplicado;
-            if (this.angulo < 75) {
-              this.calcAngulo = Math.cos(this.angulo * Math.PI / 180);
-              console.log(`Esse é o Angulo do Calculo convertido ${this.calcAngulo}`);
-            }
-            console.log(`Angulo do input ==> ${(this.angulo)}`);
-            console.log(`Esse é o fatorE3 => ${this.fatorE3}
-                            Tipo Vidro => ${this.tipoVidro}//`);
-            console.log(`Esse é o Cosseno do angulo => ${Math.cos(this.angulo)}`);
-            console.log(`Valor do elemento => ${(element)}`);
-
-            if (this.apoio === '3lados' && 'MenorLivre') {
-                this.fatorE3 = 1 * this.fatorE3;
-                console.log(`Esse é o fatorE3 ${this.fatorE3}`);
+      calculo(element: any) {
+        this.PV = this.pressao;
+        this.coefTipoVidro = this.coeficienteTipoVidro();
+        this.fatorLaminado = (this.subtipoVidro === 'laminado-triplo') ?  1.50 : 1.30;
+        switch (this.TipoVidroAplicado) {
+          case 'laminado':
+            console.log(`element Inicial=>${element}`);
+            if (this.getTipoTratamento === 'temperado') {
+                this.elementNovoTemperado = (element / this.fatorLaminado) / (this.fatorE3 * Number('0.90')) / 0.77;
+                this.elementNovo = (element / this.fatorLaminado) / (this.fatorE3 * Number('0.90'));
+                this.pressaoP(this.elementNovo);
+                this.calcPressoes(this.elementNovoTemperado);
+                this.resultado(this.elementNovoTemperado, this.elementNovo);
             } else {
-                this.fatorE3 = Number(2) * Number(this.fatorE3);
-                console.log(`Esse é o 2 x fatorE3 ${this.fatorE3}`);
+                this.elementNovo = (element / this.fatorLaminado) / (this.fatorE3 * Number('0.90'));
+                console.log(`Novo element=>${this.elementNovo}`);
+                this.pressaoP(element);
+                this.calcPressoes(this.elementNovo);
+                this.resultado(this.elementNovo, this.elementNovo);
+                }
+            break;
+        case 'monolitico':
+            if (this.getTipoTratamento === 'temperado') {
+                this.elementTemperado = element / this.fatorE3 / 0.77;
+                element = element / this.fatorE3;
+                this.pressaoP(this.elementTemperado);
+                this.calcPressoes(this.elementTemperado);
+                this.resultado(this.elementTemperado, element);
+            } else {
+                element = element / this.fatorE3;
+                this.pressaoP(element);
+                this.calcPressoes(element);
+                this.resultado(element, element);
+            }
+            break;
+        case 'insulado':
+        if (this.getTipoTratamento === 'temperado') {
+                this.elementNovoTemperado = (element) / 1.44 / 0.77;
+                this.elementNovo = (element) / 1.44;
+                this.calcPressoes(this.elementNovo);
+                this.resultado(this.elementNovoTemperado, this.elementNovo);
+            } else {
+                this.elementNovo = (element) / 1.44;
+                this.calcPressoes(this.elementNovo);
+                this.resultado(this.elementNovo, this.elementNovo);
             }
 
-            this.pressaoExterno1 = this.PV * 1.5;
-            this.pressaoExterno2 = Number('1.2') * (Number(this.PV) + (Number(this.omega) * Number(this.PP) * Number(this.calcAngulo)));
-            this.pressaoInterno1 = this.PP * 4.7;
-            this.pressaoInterno2 = 600 + this.PP;
+            break;
+        default:
+        break;
         }
-
- resultado(element: any, element2: any) {
-  this.tipoAplicacao = this.getAplicacao;
-  
-  console.log(this.tipoAplicacao, 'Tipo aplicacao')
-
-    if ( this.tipoAplicacao === 'externa') {
-      if (this.angulo >= 75) {
-        this.pressaoCalculo = this.pressaoExterno1;
-        console.log('Angulo maior que 75° EXTERNO');
-      } else {
-        this.pressaoCalculo = Math.max( this.pressaoExterno1, this.pressaoExterno2)
-        console.log('Angulo menor que 75° EXTERNO');
-      }
-    } else {
-      if (this.angulo >= 75) {
-        this.pressaoCalculo = Math.max(this.pressao, this.pressaoMinima)
-        console.log('Angulo maior que 75° INTERNO')
-      } else {
-        this.pressaoCalculo = Math.max(this.pressaoInterno1, this.pressaoInterno2)
-        console.log('Angulo menor que 75° INTERNO')
-      }
     }
+
+    calcPressoes(element: any) {
+      this.calcAngulo = 0;
+      this.angulo = Number(this.getInclinacao);
+      
+      if (this.angulo < 75) {
+        this.calcAngulo = Math.cos(this.angulo * Math.PI / 180);
+        console.log(`Esse é o Angulo do Calculo convertido ${this.calcAngulo}`);
+      }
+      console.log(`
+        Angulo do input ==> ${(this.angulo)}
+        Esse é o fatorE3 => ${this.fatorE3}
+        Tipo Vidro => ${this.TipoVidroAplicado}
+        Esse é o Cosseno do angulo => ${Math.cos(this.angulo)}
+        Valor do elemento => ${(element)}`);
+
+      if (this.apoio === '3lados' && 'MenorLivre') {
+          this.fatorE3 = 1 * this.fatorE3;
+          console.log(`Esse é o fatorE3 ${this.fatorE3}`);
+      } else {
+          this.fatorE3 = Number(2) * Number(this.fatorE3);
+          console.log(`Esse é o 2 x fatorE3 ${this.fatorE3}`);
+      }
+
+      this.pressaoExterno1 = this.PV * 1.5;
+      this.pressaoExterno2 = Number('1.2') * (Number(this.PV) + (Number(this.omega) * Number(this.PP) * Number(this.calcAngulo)));
+      this.pressaoInterno1 = this.PP * 4.7;
+      this.pressaoInterno2 = 600 + this.PP;
+
+      this.tipoAplicacao = this.getAplicacao;
+
+      console.log(this.tipoAplicacao, 'Tipo aplicacao')
+
+        if ( this.tipoAplicacao === 'externa') {
+          if (this.angulo > 75) {
+            this.pressaoCalculo = this.pressaoExterno1;
+            console.log('Angulo maior que 75° EXTERNO');
+          } else {
+            this.pressaoCalculo = Math.max( this.pressaoExterno1, this.pressaoExterno2)
+            console.log('Angulo menor que 75° EXTERNO');
+          }
+        } else {
+          if (this.angulo > 75) {
+            this.pressaoCalculo = Math.max(this.pressao, this.pressaoMinima)
+            console.log('Angulo maior que 75° INTERNO')
+          } else {
+            this.pressaoCalculo = Math.max(this.pressaoInterno1, this.pressaoInterno2)
+            console.log('Angulo menor que 75° INTERNO')
+          }
+        }
+      }
+
+ resultado(element: any, element2?: any, base?: any, base2?: any) {
+  
        console.log(`Angulo da pressao calculo =>> ${this.angulo}`)
 
         switch (this.tipoPavimento) {
@@ -687,15 +692,15 @@ export class GeometriaComponent implements OnInit, OnChanges {
               this.tipoPavimentoValue = '1.00';
               break;
        }
-      console.log(`Esse é a espessura equivalente ===>> ${element}***`);
-      console.log(`Esse é o Aspect Ratio =>> ${this.aspectRatioCalcEspessura}`);
-      console.log(`Esse é o Deflexão =>>${this.deflexao}`);
-      console.log(`Esse é o alpha =>> ${this.alpha}`);
-      console.log(`Tipo de Aplicação => ${this.tipoAplicacao}`);
-      console.log(`Angulo usado no Calculo => ${this.angulo}`);
-      console.log(`Pressão usada no Calculo => ${this.pressaoCalculo}`);
-      console.log(`Menor valor: ${this.menorValor}`);
-      console.log(`Area: ${this.area}`);
+      console.log(`Esse é a espessura equivalente ===>> ${element}***
+      Esse é o Aspect Ratio =>> ${this.aspectRatioCalcEspessura}
+      Esse é o Deflexão =>>${this.deflexao}
+      Esse é o alpha =>> ${this.alpha}
+      Tipo de Aplicação => ${this.tipoAplicacao}
+      Angulo usado no Calculo => ${this.angulo}
+      Pressão usada no Calculo => ${this.pressaoCalculo}
+      Menor valor: ${this.menorValor}
+      Area: ${this.area}`);
 
       console.log(`
       ********************
@@ -714,56 +719,60 @@ export class GeometriaComponent implements OnInit, OnChanges {
 
       console.log(this.pressaoCalculo, 'Pressão calcluco')
       this.resultado4lados = Math.sqrt((Number(this.area) * Number(this.pressaoCalculo)) / 100);
-      console.log(`Resultado 4 lados => ${this.resultado4lados}`);
-      this.resultado4lados2 = Number((Math.min(this.altura, this.largura) * Math.sqrt(this.pressaoCalculo)) / Number(6.3));
-      console.log(`Resultado 4 lados 2 => ${this.resultado4lados2}`);
-
+      
       this.resultado2ladosAlturaLivre = Number((Number(this.altura) * Math.sqrt(this.pressaoCalculo)) / Number(6.3));
-      console.log(`Resultado 2 lados Livres - Altura => ${this.resultado2ladosAlturaLivre}`);
-
+      
       this.resultado2ladosLarguraLivre = Number((Number(this.largura) * Math.sqrt(this.pressaoCalculo)) / Number(6.3));
-      console.log(`Resultado 2 lados Livres - Laterais => ${this.resultado2ladosLarguraLivre}`);
-
+      
       this.resultado3ladosBordaMenor = Number((Math.min(this.altura, this.largura) * Math.sqrt(this.pressaoCalculo)) / Number(6.3));
-      console.log(`Resultado 3 lados Borda menor Livre => ${this.resultado3ladosBordaMenor}`);
-
+      
       this.resultado3ladosBordaMaior = Math.sqrt(this.largura * Number(3) * this.altura * this.pressaoCalculo / 100);
-      console.log(`Resultado 3 lados Borda MAIOR Livre => ${this.resultado3ladosBordaMaior}`);
-
+      
       this.resultado3ladosBordaMaior2 = Number(3) * Math.min(this.altura, this.largura) * Math.sqrt(this.pressaoCalculo) / Number(6.3);
-      console.log(`Resultado 3 lados Borda MAIOR Livre 2 => ${this.resultado3ladosBordaMaior2}`);
+      console.log(`Resultado 4 lados => ${this.resultado4lados}
+      Resultado 2 lados Livres - Altura => ${this.resultado2ladosAlturaLivre}
+      Resultado 2 lados Livres - Laterais => ${this.resultado2ladosLarguraLivre}
+      Resultado 3 lados Borda menor Livre => ${this.resultado3ladosBordaMenor}
+      Resultado 3 lados Borda MAIOR Livre => ${this.resultado3ladosBordaMaior}
+      Resultado 3 lados Borda MAIOR Livre 2 => ${this.resultado3ladosBordaMaior2}`);
 
+      console.log(`${this.geometriaForm.controls.ladoApoio.value } e ${this.Apoio}
+      ::::::
+       lado apoio e apoio
+      ::::`)
       const numero = Math.max(this.altura, this.largura) / Math.min(this.altura, this.largura);
-      switch (this.apoio) {
-        case '2apoiosTopoLivre':
-            this.espessuraMinima = this.resultado2ladosAlturaLivre  * Number(this.tipoPavimentoValue);
-            console.log(`Espessura Minima =====>>>> ${this.espessuraMinima}`);
-          break;
-        case '2apoiosLadoLivre':
+      switch (this.Apoio) {
+        case '2lados':
+          if (this.geometriaForm.controls.ladoApoio.value === 'altura') {
             this.espessuraMinima = this.resultado2ladosLarguraLivre  * Number(this.tipoPavimentoValue);
             console.log(`Espessura Minima =====>>>> ${this.espessuraMinima}`);
-          break;
-        case '3apoiosMenorLivre':
-            this.espessuraMinima = this.resultado3ladosBordaMenor  * Number(this.tipoPavimentoValue);
+          } else{
+            this.espessuraMinima = this.resultado2ladosAlturaLivre  * Number(this.tipoPavimentoValue);
             console.log(`Espessura Minima =====>>>> ${this.espessuraMinima}`);
+          }
           break;
-        case '3apoiosMaiorLivre':
-            if (numero <= Number(7.5)) {
-              console.log('Resultante Menor que 7.5 -- função 3 lados');
-              console.log(`Numero da divisão => ${numero}`);
-              console.log(`Resultado Final => ${this.resultado3ladosBordaMaior}`);
-              this.espessuraMinima = Number(this.resultado3ladosBordaMaior) * Number(this.tipoPavimentoValue);
+          case '3lados':
+              if (this.geometriaForm.controls.ladoApoio.value  === 'MenorLivre') {
+              this.espessuraMinima = this.resultado3ladosBordaMenor  * Number(this.tipoPavimentoValue);
               console.log(`Espessura Minima =====>>>> ${this.espessuraMinima}`);
-            } else {
-              console.log('Resultante Maior que 7.5 -- função 3 lados');
-              console.log(`Numero da divisão => ${numero}`);
-              console.log(`Resultado Final => ${this.resultado3ladosBordaMaior2}`);
-              this.espessuraMinima = Number(this.resultado3ladosBordaMaior2) * Number(this.tipoPavimentoValue);
-              console.log(`Espessura Minima =====>>>> ${this.espessuraMinima}`);
+              } else {
+              if (numero <= Number(7.5)) {
+                console.log('Resultante Menor que 7.5 -- função 3 lados');
+                console.log(`Numero da divisão => ${numero}`);
+                console.log(`Resultado Final => ${this.resultado3ladosBordaMaior}`);
+                this.espessuraMinima = Number(this.resultado3ladosBordaMaior) * Number(this.tipoPavimentoValue);
+                console.log(`Espessura Minima =====>>>> ${this.espessuraMinima}`);
+              } else {
+                console.log('Resultante Maior que 7.5 -- função 3 lados');
+                console.log(`Numero da divisão => ${numero}`);
+                console.log(`Resultado Final => ${this.resultado3ladosBordaMaior2}`);
+                this.espessuraMinima = Number(this.resultado3ladosBordaMaior2) * Number(this.tipoPavimentoValue);
+                console.log(`Espessura Minima =====>>>> ${this.espessuraMinima}`);
+              }
             }
-          break;
-        case '4apoios': // 4lados apoiados
-            if (this.aspectRatioCalcEspessura <= Number(2.50)) {
+            break;
+        case '4lados': // 4lados apoiados
+            if (this.aspectRatioCalcEspessura = Number(2.50)) {
               // função 4 lados
               console.log('Função 4 lados -- Ratio menor que 2.5');
               console.log(`Aspect Ratio Calc Espessura => ${this.aspectRatioCalcEspessura}`);
@@ -779,7 +788,7 @@ export class GeometriaComponent implements OnInit, OnChanges {
             }
           break;
         default: //4lados apoiados
-            if (this.aspectRatioCalcEspessura <= Number(2.50)) {
+            if (this.aspectRatioCalcEspessura < Number(2.50)) {
               console.log('Função 4 lados -- Ratio menor que 2.5');
               console.log(`Aspect Ratio Calc Espessura => ${this.aspectRatioCalcEspessura}`);
               console.log(`Espessura Final => ${this.resultado4lados}`);
@@ -794,8 +803,14 @@ export class GeometriaComponent implements OnInit, OnChanges {
             }
           break;
         }
-        console.log(`Elemento Flecha flesh: ${element2}`);
-        this.flecha(element2);
+        console.log(this.TipoVidroAplicado)
+        if (this.TipoVidroAplicado === 'monolitico') {
+          console.log(`Elemento Flecha flesh: ${element2}`);
+          this.flecha(element2);
+        } else {
+          console.log(`Elemento Flecha flesh: ${this.laminadoValue}`);
+          this.flecha(this.laminadoValue);
+        }
           // this.primeiraDiv = document.querySelector(`div#id${this.baseID}`);
           // console.log(`Primeira div teste => ${this.primeiraDiv}`);
         if (this.primeiraDiv == null ) {
@@ -833,6 +848,7 @@ export class GeometriaComponent implements OnInit, OnChanges {
           console.log(element2, this.flechaMinina.toFixed(2), this.flechaAtuante.toFixed(2), '******* flecha******');
           console.log(element, this.espessuraMinima.toFixed(2), '*******Espessura******');
           this.ArrayResultados.push({
+            EspessurasVidros: base2 ? `${base} + ${base2}` : `${base}`,
             EspessuraVidro: Number(element),
             EspessuraMinima: Number(this.espessuraMinima.toFixed(2)),
             EspessuraBroken: Number(this.espessuraMinima.toFixed(2)) < Number(element) ? 'OK' : 'KO',
