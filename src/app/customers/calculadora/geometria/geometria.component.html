@@ -148,29 +148,42 @@
   
   
   <div class="geometria__options" [formGroup]="geometriaForm">
-    <div class="md-form">
-      <input type="text" formControlName="Inclinacao" name="Inclinacao" class="geometria__button form-control" #Inclinacao id="Inclinacao" max="90" min="0" (change)="storeItem(Inclinacao)">
+    <div class="geometria__item">
       <label for="Inclinacao">Inclinação</label>
+      <div class="md-form">
+        <input type="number" formControlName="Inclinacao" name="Inclinacao" class="form-control" #Inclinacao id="Inclinacao" max="90" min="0" (change)="storeItem(Inclinacao)">
+      </div>
     </div>
   </div>
   
   <div class="geometria__options" [formGroup]="geometriaForm">
-    <h1>Aplicação</h1>
-    <input type="radio" formControlName="Aplicacao" name="Aplicacao" class="geometria__button" #interna id="interna" value="interna" (click)="storeItem(interna)">
-    <label for="interna">Interna</label>
-    
-    <input type="radio" formControlName="Aplicacao" name="Aplicacao" class="geometria__button" #externa id="externa" value="externa" (click)="storeItem(externa)">
-    <label for="externa">Externa</label>
+    <div>
+      <h1>Aplicação</h1>
+      <div class="geometria__item">
+        <div class="geometria__radio--button" [ngClass]="{bgGrey: this.getAplicacao === 'interna' }">
+          <label for="interna">Interna</label>
+          <input type="radio" formControlName="Aplicacao" name="Aplicacao" class="geometria__button" #interna id="interna" value="interna" (click)="storeItem(interna)">
+        </div>
+        
+        <div class="geometria__radio--button" [ngClass]="{bgGrey: this.getAplicacao === 'externa' }">
+          <label for="externa">Externa</label>
+          <input type="radio" formControlName="Aplicacao" name="Aplicacao" class="geometria__button" #externa id="externa" value="externa" (click)="storeItem(externa)">
+        </div>
+      </div>
+    </div>
   </div>   
   
     
   <div class="geometria__options" [formGroup]="geometriaForm">
       <h1>Tipo do pavimento</h1>
-      <input type="radio" formControlName="TipoPavimento" name="TipoPavimento" class="geometria__button" #Acima id="Acima" value="Acima" (click)="storeItem(Acima)">
-      <label for="Acima">Acima de 6m</label>
-      
-      <input type="radio" formControlName="TipoPavimento" name="TipoPavimento" class="geometria__button" #Abaixo id="Abaixo" value="Abaixo" (click)="storeItem(Abaixo)">
-      <label for="Abaixo">Abaixo de 6m</label>
+      <div class="geometria__radio--button" [ngClass]="{bgGrey: this.getPavimento === 'Acima' }">
+        <input type="radio" formControlName="TipoPavimento" name="TipoPavimento" class="geometria__button" #Acima id="Acima" value="Acima" (click)="storeItem(Acima)">
+        <label for="Acima">Acima de 6m</label>
+      </div>
+      <div class="geometria__radio--button" [ngClass]="{bgGrey: this.getPavimento === 'Abaixo' }">
+        <input type="radio" formControlName="TipoPavimento" name="TipoPavimento" class="geometria__button" #Abaixo id="Abaixo" value="Abaixo" (click)="storeItem(Abaixo)">
+        <label for="Abaixo">Abaixo de 6m</label>
+      </div>
     </div>  
 <div class="geometria__options" [formGroup]="geometriaForm">
     <h1>Dimensões</h1>
