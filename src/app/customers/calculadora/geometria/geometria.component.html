@@ -134,13 +134,13 @@
       </div>    
 
       <div *ngIf="geometriaForm.get('Apoio').value === '3lados'">
-        <input type="radio" formControlName="ladoApoio" name="ladoApoio" class="geometria__button" #MenorLivre id="MenorLivre" value="MenorLivre" (click)="storeItem(MenorLivre)">
+        <input type="radio" formControlName="ladoApoio" name="ladoApoio" class="geometria__button" #larguraLivre id="larguraLivre" value="larguraLivre" (click)="storeItem(larguraLivre)">
         <img src="../../../../assets/geometria/geometria0.svg" alt="">   
-        <label for="MenorLivre">Menor lado livre</label>
+        <label for="MenorLivre">Largura livre</label>
         
-        <input type="radio" formControlName="ladoApoio" name="ladoApoio" class="geometria__button" #MaiorLivre id="MaiorLivre" value="MaiorLivre" (click)="storeItem(MaiorLivre)">
+        <input type="radio" formControlName="ladoApoio" name="ladoApoio" class="geometria__button" #alturaLivre id="alturaLivre" value="alturaLivre" (click)="storeItem(alturaLivre)">
         <img src="../../../../assets/geometria/geometria0.svg" alt="">   
-        <label for="MaiorLivre">Maior lado livre</label>
+        <label for="MaiorLivre">Altura livre</label>
       </div>  
     </div>
 
@@ -217,15 +217,25 @@
 
   <div class="geometria__options" [formGroup]="geometriaForm">
     <div>
+      <label for="">Comum</label>   
       <input type="radio" formControlName="TipoTratamento" name="TipoTratamento" class="geometria__button" #comum id="comum" value="comum" (click)="storeItem(comum)">
       <img src="../../../../assets/geometria/geometria5.svg" alt="">
-      <label for="">Comum</label>   
       
-      <!-- <input type="radio" formControlName="TipoTratamento" name="TipoTratamento" class="geometria__button" #laminado id="laminado" value="laminado" (click)="storeItem(laminado)">
+      <label for="Impresso">Impresso</label>   
+      <input type="radio" formControlName="TipoTratamento" name="TipoTratamento" class="geometria__button" #Impresso id="Impresso" value="Impresso" (click)="storeItem(Impresso)">
       <img src="../../../../assets/geometria/geometria5.svg" alt="">   
-      <label for="">Laminado</label>    -->
 
+      <label for="Aramado">Aramado</label>   
+      <input type="radio" formControlName="TipoTratamento" name="TipoTratamento" class="geometria__button" #Aramado id="Aramado" value="Aramado" (click)="storeItem(Aramado)">
+      <img src="../../../../assets/geometria/geometria5.svg" alt="">   
       
+      <label for="Temperado">Temperado</label>   
+      <input type="radio" formControlName="TipoTratamento" name="TipoTratamento" class="geometria__button" #Temperado id="Temperado" value="Temperado" (click)="storeItem(Temperado)">
+      <img src="../../../../assets/geometria/geometria5.svg" alt="">   
+
+      <label for="TermoEndurecido">Termo-endurecido</label>   
+      <input type="radio" formControlName="TipoTratamento" name="TipoTratamento" class="geometria__button" #TermoEndurecido id="TermoEndurecido" value="TermoEndurecido" (click)="storeItem(TermoEndurecido)">
+      <img src="../../../../assets/geometria/geometria5.svg" alt="">   
       <!-- <input type="radio" formControlName="TipoTratamento" name="TipoTratamento" class="geometria__button" #insulado id="insulado" value="insulado" (click)="storeItem(insulado)">
       <img src="../../../../assets/geometria/geometria5.svg" alt="">    -->
     </div>    

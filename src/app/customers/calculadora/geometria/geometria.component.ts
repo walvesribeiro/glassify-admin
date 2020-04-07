@@ -164,6 +164,9 @@ export class GeometriaComponent implements OnInit, OnChanges {
     return this.geometriaForm.controls.Apoio.value;
   }
 
+  get LadoLivre() {
+    return this.geometriaForm.controls.ladoApoio.value;
+  }
   get getTipoTratamento() {
     return this.geometriaForm.controls.TipoTratamento.value;
   }
@@ -194,13 +197,14 @@ export class GeometriaComponent implements OnInit, OnChanges {
     this.flechaMinina = (this.Apoio === '4lados') ?
       Math.min( this.ApscFlecha / Number(60 * 1000) * Math.pow(10, 6), Number(30) ) :
       (this.Apoio === '3lados') ?
-        Math.min( this.menorValor / Number(100 * 1000), Number(50)) * Math.pow(10, 6) :
-          Math.min( this.menorValor / Number(150 * 1000), Number(50)) * Math.pow(10, 6) ;
+        (this.LadoLivre === 'larguraLivre' ) ? Math.min( this.Largura / Number(100 * 1000), Number(50)) * Math.pow(10, 6) :
+          Math.min( this.Altura / Number(100 * 1000), Number(50)) * Math.pow(10, 6) :
+            Math.min( this.menorValor / Number(150 * 1000), Number(50)) * Math.pow(10, 6) ;
     console.log(`Flecha Minima: ${this.flechaMinina}****************************`);
   }
 
   pressaoP(element: any) {
-    this.PP = Number(2.5) * Number(this.gravidade) * Number(element);
+    this.PP = Number(25) * Number(element);
     console.log(`Esse é o PP da espessura ${element}=> ${this.PP}`);
     // this.ladosLivres();
   }
@@ -229,17 +233,18 @@ export class GeometriaComponent implements OnInit, OnChanges {
           }
         break;
       case '3lados':
-          if (ladoApoio === 'MenorLivre') {
+          if (ladoApoio === 'larguraLivre') {
+
             this.ApscFlecha = this.Largura;
-            this.aspectRatioCalcEspessura = this.largura / this.altura;
+            this.aspectRatioCalcEspessura = this.altura / this.largura;
             this.deflexao = Number(this.largura / this.altura ).toFixed(2);
-            this.alpha = this.search(`${this.deflexao}`, this.array3lados);
+            this.alpha = this.search(`${this.aspectRatioCalcEspessura.toFixed(2)}`, this.array3lados);
             [this.alpha].filter( (x: any) => this.alpha = Number(x.value));
           } else {
             this.ApscFlecha = this.Altura;
-            this.aspectRatioCalcEspessura = this.altura / this.largura;
+            this.aspectRatioCalcEspessura = this.largura / this.altura;
             this.deflexao = Number(this.altura / this.largura).toFixed(2);
-            this.alpha = this.search(`${this.deflexao}`, this.array3lados);
+            this.alpha = this.search(`${this.aspectRatioCalcEspessura.toFixed(2)}`, this.array3lados);
             [this.alpha].filter( (x: any) => this.alpha = Number(x.value));
           }
         break;
@@ -325,12 +330,12 @@ export class GeometriaComponent implements OnInit, OnChanges {
         console.log('chamou a função monolitico');
         if (this.getTipoTratamento === 'comum') {
             console.log('chamou a função monolitico com vidro comum');
-            this.espessuraVidro = [3, 4, 5, 6, 8, 10, 12, 15, 19];
-            // this.espessuraVidro = [8];
+            // this.espessuraVidro = [3, 4, 5, 6, 8, 10, 12, 15, 19];
+            this.espessuraVidro = [12];
         } else {
             console.log('chamou a função monolitico com vidro temperado');
-            this.espessuraVidro = [5, 6, 8, 10, 12, 15, 19];
-            // this.espessuraVidro = [8];
+            // this.espessuraVidro = [5, 6, 8, 10, 12, 15, 19];
+            this.espessuraVidro = [12];
 
         }
         this.espessuraVidro.forEach( (element: any) => {
@@ -411,7 +416,8 @@ export class GeometriaComponent implements OnInit, OnChanges {
       if (tipo === 'monolitico') {
           if (this.getTipoTratamento === 'comum') {
               console.log('Insulado-1 monolitico com vidro comum');
-              this.espessuraVidro = [3, 4, 5, 6, 8, 10, 12, 15, 19];
+              // this.espessuraVidro = [3, 4, 5, 6, 8, 10, 12, 15, 19];
+              this.espessuraVidro = [12];
           } else {
               console.log('Insulado-1 monolitico com vidro temperado');
               this.espessuraVidro = [5, 6, 8, 10, 12, 15, 19];
@@ -522,11 +528,12 @@ export class GeometriaComponent implements OnInit, OnChanges {
           });
       }
   }
+
   coeficienteTipoVidro() {
-    switch (this.TipoVidroAplicado) {
-      case 'float':
-          this.fatorE3 = 1.00;
-          this.omega = 2;
+    switch (this.getTipoTratamento) {
+      case 'Temperado':
+          this.fatorE3 = 0.77;
+          this.omega = 1;
         break;
       case 'Impresso':
           this.fatorE3 = 1.10;
@@ -536,42 +543,42 @@ export class GeometriaComponent implements OnInit, OnChanges {
           this.fatorE3 = 1.20;
           this.omega = 2;
         break;
-      case 'termo-endurecido':
+      case 'TermoEndurecido':
           this.fatorE3 = 0.80;
-          this.omega = 2;
+          this.omega = 1;
         break;
       default:
           this.fatorE3 = 1;
-          this.omega = 1;
+          this.omega = 2;
         break;
     }
   }
 
-    calcular(form: any) {
-      this.ArrayResultados = [];
-      console.log(form);
-      this.altura = Number(this.Altura);
-      this.largura = Number(this.Largura);
-      this.menorValor = Math.min(this.Altura, this.Largura);
-      this.maiorValor = Math.max(this.Altura, this.Largura);
-      this.tipoPavimento = this.getPavimento;
-      console.log('form.Geometria')
-      console.log(form.Geometria)
+  calcular(form: any) {
+    this.ArrayResultados = [];
+    console.log(form);
+    this.altura = Number(this.Altura);
+    this.largura = Number(this.Largura);
+    this.menorValor = Math.min(this.Altura, this.Largura);
+    this.maiorValor = Math.max(this.Altura, this.Largura);
+    this.tipoPavimento = this.getPavimento;
+    console.log('form.Geometria')
+    console.log(form.Geometria)
 
-      this.forma(form.Geometria.value);
-      this.ladosLivres(form.Apoio.value, form.ladoApoio.value);
-      this.definePressao(form.Pressao.value);
-      this.baseEspessuraVidro();
+    this.forma(form.Geometria.value);
+    this.ladosLivres(form.Apoio.value, form.ladoApoio.value);
+    this.definePressao(form.Pressao.value);
+    this.baseEspessuraVidro();
 
 
-      console.log(this.Apoio, this.alpha,
-                this.aspectRatioCalcEspessura,
-                this.altura, this.largura,
-                this.deflexao, this.pressao,
-                this.menorValor
-                )
+    console.log(this.Apoio, this.alpha,
+              this.aspectRatioCalcEspessura,
+              this.altura, this.largura,
+              this.deflexao, this.pressao,
+              this.menorValor
+              )
 
-    }
+  }
 
       calculo(element: any) {
         this.PV = this.pressao;
@@ -602,10 +609,10 @@ export class GeometriaComponent implements OnInit, OnChanges {
                 this.calcPressoes(this.elementTemperado);
                 this.resultado(this.elementTemperado, element);
             } else {
-                element = element / this.fatorE3;
                 this.pressaoP(element);
+                const elementNovo = element / this.fatorE3;
                 this.calcPressoes(element);
-                this.resultado(element, element);
+                this.resultado(element, elementNovo, element);
             }
             break;
         case 'insulado':
@@ -641,7 +648,7 @@ export class GeometriaComponent implements OnInit, OnChanges {
         Esse é o Cosseno do angulo => ${Math.cos(this.angulo)}
         Valor do elemento => ${(element)}`);
 
-      if (this.apoio === '3lados' && 'MenorLivre') {
+      if (this.apoio === '3lados' && 'larguraLivre') {
           this.fatorE3 = 1 * this.fatorE3;
           console.log(`Esse é o fatorE3 ${this.fatorE3}`);
       } else {
@@ -678,7 +685,7 @@ export class GeometriaComponent implements OnInit, OnChanges {
       }
 
  resultado(element: any, element2?: any, base?: any, base2?: any) {
-  
+      console.log(element, element2, base, base2, '******************');
        console.log(`Angulo da pressao calculo =>> ${this.angulo}`)
 
         switch (this.tipoPavimento) {
@@ -718,6 +725,7 @@ export class GeometriaComponent implements OnInit, OnChanges {
       `);
 
       console.log(this.pressaoCalculo, 'Pressão calcluco')
+      
       this.resultado4lados = Math.sqrt((Number(this.area) * Number(this.pressaoCalculo)) / 100);
       
       this.resultado2ladosAlturaLivre = Number((Number(this.altura) * Math.sqrt(this.pressaoCalculo)) / Number(6.3));
@@ -752,7 +760,7 @@ export class GeometriaComponent implements OnInit, OnChanges {
           }
           break;
           case '3lados':
-              if (this.geometriaForm.controls.ladoApoio.value  === 'MenorLivre') {
+              if (this.geometriaForm.controls.ladoApoio.value  === 'larguraLivre') {
               this.espessuraMinima = this.resultado3ladosBordaMenor  * Number(this.tipoPavimentoValue);
               console.log(`Espessura Minima =====>>>> ${this.espessuraMinima}`);
               } else {
@@ -805,8 +813,8 @@ export class GeometriaComponent implements OnInit, OnChanges {
         }
         console.log(this.TipoVidroAplicado)
         if (this.TipoVidroAplicado === 'monolitico') {
-          console.log(`Elemento Flecha flesh: ${element2}`);
-          this.flecha(element2);
+          console.log(`Elemento Flecha flesh: ${base}`);
+          this.flecha(base);
         } else {
           console.log(`Elemento Flecha flesh: ${this.laminadoValue}`);
           this.flecha(this.laminadoValue);
@@ -849,7 +857,8 @@ export class GeometriaComponent implements OnInit, OnChanges {
           console.log(element, this.espessuraMinima.toFixed(2), '*******Espessura******');
           this.ArrayResultados.push({
             EspessurasVidros: base2 ? `${base} + ${base2}` : `${base}`,
-            EspessuraVidro: Number(element),
+            EspessuraInicialVidro: element,
+            EspessuraVidro: Number(element2),
             EspessuraMinima: Number(this.espessuraMinima.toFixed(2)),
             EspessuraBroken: Number(this.espessuraMinima.toFixed(2)) < Number(element) ? 'OK' : 'KO',
             FlechaMinima: Number(this.flechaMinina.toFixed(2)),
